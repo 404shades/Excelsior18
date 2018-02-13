@@ -19,7 +19,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('Accounts.urls'))
+    path('accounts/', include('Accounts.urls')),
+    path('Events/', include('Events.urls')),
+    path('participation/', include('Participation.urls')),
 ]
 
 if settings.DEBUG:

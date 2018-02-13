@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     #myApps
     'Accounts',
+    'Events',
+    'Participation',
 ]
 
 MIDDLEWARE = [
