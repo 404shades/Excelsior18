@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block styling %}
+    <link rel="stylesheet" href="{% static 'css/partstyle.css' %}">
+{% endblock %}
+{% block content %}
+    <div id="particles-js">
+    <div class="loginbox">
+    <h1>Login Here</h1>
+        <form method="post">
+            {% csrf_token %}
+        {{ forming|crispy }}
+            <hr>
+            <input type="submit" class="btn btn-block" value="Login">
+        </form>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', '{% static 'js/particles.json' %}', function () {
+            console.log('Particles.json Loaded')
+        })
+    </script>
+{% endblock %}

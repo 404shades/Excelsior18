@@ -11,7 +11,7 @@ User = get_user_model()
 def login_page(request):
     form = LoginForm(request.POST or None)
     context = {
-        "form": form
+        "forming": form
     }
     next_ = request.GET.get('next')
     next_post = request.POST.get('next')
@@ -29,7 +29,7 @@ def login_page(request):
                 return redirect('/')
         else:
             print('Error')
-    return render(request, 'Authentication/login.html', context)
+    return render(request, 'Authentication/index.html', context)
 
 
 class RegisterView(FormView):
@@ -43,3 +43,9 @@ class RegisterView(FormView):
         email = self.request.POST['email']
         User.objects.create_user(username=username, email=email, password=password)
         return super(RegisterView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(RegisterView, self).get_context_data(**kwargs)
+        print(context)
+        return context
+
