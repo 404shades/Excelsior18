@@ -2,7 +2,20 @@
 {% block title %}Participations{% endblock %}
 {% block content %}
     <h1>My Participations</h1>
-    {%  for event in participation.eventspart.all %}
-        <p>{{ forloop.counter }}-   {{ event }} {% include 'Events/Snippets/form.html' with event=event participation=participation in_another=True %}</p>
-    {% endfor %}
+<table class="table participation-table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Event</th>
+    </tr>
+  </thead>
+  <tbody class="participation-body">
+  {%  for event in participation.eventspart.all %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ event }} {% include 'Events/Snippets/form.html' with event=event participation=participation in_another=True %} </td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
