@@ -4,11 +4,7 @@
     {% for x in object_list %}
         <img src="{{ x.image.url }}">
         {% if request.user.is_authenticated %}
-            {% if x in participate.eventspart.all %}
-                Already Registered
-                {% else %}
-        <a href="#">Register Now</a>
-        {% endif %}
+            {% include 'Events/Snippets/form.html' with event=x participation=participate %}
         {% endif %}
         <br><hr>
     {% endfor %}

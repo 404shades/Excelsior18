@@ -2,4 +2,7 @@
 {% block title %}Participations{% endblock %}
 {% block content %}
     <h1>My Participations</h1>
+    {%  for event in participation.eventspart.all %}
+        <p>{{ forloop.counter }}-   {{ event }} {% include 'Events/Snippets/form.html' with event=event participation=participation in_another=True %}</p>
+    {% endfor %}
 {% endblock %}

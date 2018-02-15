@@ -1,0 +1,12 @@
+<form method="POST" action="{% url "Participation:update" %}" class="form">{% csrf_token %}
+    <input type="hidden" name="event_id" value="{{ event.id }}"/>
+    {% if in_another %}
+    <button type="submit" class="btn btn-danger">Remove?</button>
+    {% else %}
+    {% if event in participation.eventspart.all %}
+    Already Registered <button type="submit" class="btn btn-link">Remove?</button>
+    {% else %}
+    <button type="submit" class="btn btn-success">Register Now</button>
+    {% endif %}
+{% endif %}
+</form>
