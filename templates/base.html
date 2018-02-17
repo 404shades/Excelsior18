@@ -23,6 +23,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'js/ajaxify.js' %}"></script>
         <script>
             $(document).ready(function () {
                 console.log("name", "Entered");
@@ -62,12 +63,36 @@
                    console.log("In the Participation Page");
                    var home_participate_table = $(".participation-table");
                    var home_participate_body = home_participate_table.find(".participation-body");
-                   home_participate_body.html("Changed")
-
-                   var updateParticipateUrl;
-                   var updateParticipateMethod;
-                   var data = bb
-                   };
+                   var event_rows = home_participate_body.find('.participation-event');
+                   var currentUrl = window.location.href;
+                   var updateParticipateUrl = '/api/participate';
+                   var updateParticipateMethod = "GET";
+                   var data = {};
+                   $.ajax({
+                       url: updateParticipateUrl,
+                       method: updateParticipateMethod,
+                       data: data,
+                       success: function (data) {
+                         var hiddenParticipateEventRemoveForm = $('.participation-item-remove-form');
+                         if (data.eventsring.length>0) {
+                             event_rows.html("");
+                             i=data.eventsring.length;
+                             $.each(data.eventsring, function (index, value) {
+                                 var newParticpationEventForm = hiddenParticipateEventRemoveForm.clone();
+                                 newParticpationEventForm.css('display','block');
+                                 newParticpationEventForm.find(".participation-event-id").val(value.ide);
+                                home_participate_body.prepend("<tr><th scope=\"row\">" + i  + "</th><td>" + value.title + newParticpationEventForm.html() +  "</td></tr>");
+                                i--;
+                             });
+                         }
+                         else {
+                             window.location.href = currentUrl;
+                         }
+                       },
+                       error: function (errorData) {
+                           console.log(errorData);
+                       }
+                   })
                } 
 
             })

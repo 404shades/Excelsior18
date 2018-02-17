@@ -11,11 +11,14 @@
   </thead>
   <tbody class="participation-body">
   {%  for event in participation.eventspart.all %}
-    <tr>
+    <tr class="participation-event">
       <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ event }} {% include 'Events/Snippets/form.html' with event=event participation=participation in_another=True %} </td>
+        <td>{{ event }} {% include 'Participation/Snippets/removeparticipate.html' with event_id=event.id %} </td>
     </tr>
    {% endfor %}
   </tbody>
 </table>
+    <div class="participation-item-remove-form" style="display: none;">
+    {% include 'Participation/Snippets/removeparticipate.html' %}
+    </div>
 {% endblock %}

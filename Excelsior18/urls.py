@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from Participation.views import participate_detail_api_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
     path('Events/', include('Events.urls')),
     path('participation/', include('Participation.urls')),
+    path('api/participate', participate_detail_api_view, name='api-detail'),
 ]
 
 if settings.DEBUG:

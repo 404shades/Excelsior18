@@ -6,6 +6,16 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+def participate_detail_api_view(request):
+    part_obj, new_obj = Participate.objects.new_or_get(request)
+    eventsmate = [{"title": x.title,"ide": x.id} for x in part_obj.eventspart.all()]
+    jsondata = {
+        'eventsring':eventsmate
+    }
+    print(jsondata)
+    return JsonResponse(jsondata)
+
+
 @login_required(login_url='/accounts/login/')
 def participate_home(request):
     part_obj, new_obj = Participate.objects.new_or_get(request)
