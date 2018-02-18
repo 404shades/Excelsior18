@@ -40,10 +40,17 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     #myApps
+    'phonenumber_field',
     'Accounts',
     'Events',
     'Participation',
 ]
+
+AUTH_USER_MODEL = 'Accounts.User'
+MAILCHIMP_API_KEY = 'abe6147565bdb7feca598db8ad6115d2-us17'
+MAILCHIMP_DATA_CENTER = "us17"
+MAILCHIMP_EMAIL_LIST_ID = "7e0a67c7c0"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -119,6 +126,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+PHONENUMBER_DEFAULT_REGION = "IN"
 
 
 # Static files (CSS, JavaScript, Images)

@@ -1,0 +1,32 @@
+[
+{
+    "model": "Events.event",
+    "pk": 1,
+    "fields": {
+        "title": "Singing",
+        "summary": "An event that lets you explore your singing abilities. But this time it?s not just basic singing, you have to keep your instruments or the karaoke ready with you.",
+        "rules": "o\r\n\r\n    Solo performance\r\n    Participants must report 30 mins prior to the event timing.\r\n    Participants can bring atmost two accompanists with them.\r\n    Participants are requested to submit song before 11 April to avoid technical disturbance.\r\n    Time Limit:Time allotted for each performance is 3-5 minutes. A warning bell will be given at the end of 3 minutes.\r\n    Participants will not be allowed to refer to the lyrics while singing.\r\n    The participants should bring their own musical instruments if required in the performance.\r\n    The participants will be judged on the son",
+        "image": "products/2101612442/2101612442.jpg"
+    }
+},
+{
+    "model": "Events.event",
+    "pk": 2,
+    "fields": {
+        "title": "Acclivity",
+        "summary": "o\r\n\r\n    Solo performance\r\n    Participants must report 30 mins prior to the event timing.\r\n    Participants can bring atmost two accompanists with them.\r\n    Participants are requested to submit song before 11 April to avoid technical disturbance.\r\n    Time Limit:Time allotted for each performance is 3-5 minutes. A warning bell will be given at the end of 3 minutes.\r\n    Participants will not be allowed to refer to the lyrics while singing.\r\n    The participants should bring their own musical instruments if required in the performance.\r\n    The participants will be judged on the son",
+        "rules": "o\r\n\r\n    Solo performance\r\n    Participants must report 30 mins prior to the event timing.\r\n    Participants can bring atmost two accompanists with them.\r\n    Participants are requested to submit song before 11 April to avoid technical disturbance.\r\n    Time Limit:Time allotted for each performance is 3-5 minutes. A warning bell will be given at the end of 3 minutes.\r\n    Participants will not be allowed to refer to the lyrics while singing.\r\n    The participants should bring their own musical instruments if required in the performance.\r\n    The participants will be judged on the son",
+        "image": "products/438351942/438351942.jpg"
+    }
+},
+{
+    "model": "Events.event",
+    "pk": 3,
+    "fields": {
+        "title": "Dancing",
+        "summary": "hdasjhashdjhdjs",
+        "rules": "hkhsdfkhfkskfnsmfbskbfmsbmfd",
+        "image": "products/3238833933/3238833933.jpg"
+    }
+}
+]

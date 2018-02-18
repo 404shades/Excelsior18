@@ -10,7 +10,7 @@
     <h1>Login Here</h1>
         <form method="post">
             {% csrf_token %}
-        {{ forming|crispy }}
+        {{ form|crispy }}
             <hr>
             <input type="submit" class="btn btn-block" value="Login">
         </form>

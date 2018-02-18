@@ -13,6 +13,8 @@ class EventsView(ListView):
     def get_context_data(self, **kwargs):
         context = super(EventsView,self).get_context_data(**kwargs)
         request = self.request
-        parting, newing = Participate.objects.new_or_get(request)
-        context['participate'] = parting
+        if request.user.is_authenticated:
+            parting, newing = Participate.objects.new_or_get(request)
+            context['participate'] = parting
+            return context
         return context
