@@ -34,4 +34,13 @@ class RegisterView(CreateView):
     success_url = '/accounts/login'
     template_name = 'Authentication/register.html'
 
+    def post(self, request, *args, **kwargs):
+        print("welcome Rohan Malik")
+        user = self.request.POST['full_name']
+        print(user)
+        mob_no = self.request.POST['mobile_no'].strip("+")
+        otp_obj = sendotp.sendotp.sendotp('197589AXDtCunMpPbM5a7eba71', 'Hello ' + user + '\nThank You For Signing Up with Excelsior 2018, \n{{otp}} is the OTP for your Registration Process. This is usable once and valid for 5 minutes from the request. \nPlease donot share it with anyone...\n\nLike Our Facebook Page https://www.facebook.com/excelsior.uiet \nFollow us on Instagram https://www.instagram.com/excelsioruiet')
+        otp = otp_obj.generateOtp()
+        otp_obj.send(mob_no, 'EXCLSR', otp)
+        return redirect('/accounts/login')
 

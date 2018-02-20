@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     'Accounts',
     'Events',
     'Participation',
+    'Marketting',
 ]
 
 AUTH_USER_MODEL = 'Accounts.User'
-MAILCHIMP_API_KEY = 'abe6147565bdb7feca598db8ad6115d2-us17'
+MAILCHIMP_API_KEY = '460cf24ba371aae69f1118748985b53f-us17'
 MAILCHIMP_DATA_CENTER = "us17"
 MAILCHIMP_EMAIL_LIST_ID = "7e0a67c7c0"
 
