@@ -1,5 +1,24 @@
 from django.contrib import admin
-from .models import Event
+from .models import Event, Category, SubCategory
 # Register your models here.
 
-admin.site.register(Event)
+
+class EventAdmin(admin.ModelAdmin):
+    list_display = ['title', 'area']
+
+
+admin.site.register(Event, EventAdmin)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['title', 'team_head_name', 'team_head_mobile']
+
+
+admin.site.register(Category, CategoryAdmin)
+
+
+class SubCategoryAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category']
+
+
+admin.site.register(SubCategory, SubCategoryAdmin)

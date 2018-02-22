@@ -75,7 +75,7 @@ class User(AbstractBaseUser):
 
     def get_mobile(self):
         if self.mobile_no:
-            return self.mobile_no
+            return str(self.mobile_no)
         return None
 
     def get_short_name(self):

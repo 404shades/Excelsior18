@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+import sendotp
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 User = get_user_model()
@@ -79,6 +80,14 @@ class RegisterForm(forms.ModelForm):
         user.set_password(self.cleaned_data["password1"])
         user.active = False
         if commit:
+            print("welcome Rohan Malik")
+            username = user.get_full_name()
+            print(user)
+            mob_no = user.get_mobile().strip("+")
+            otp_obj = sendotp.sendotp.sendotp('197589AXDtCunMpPbM5a7eba71',
+                                              'Hello ' + username + '\nThank You For Signing Up with Excelsior 2018, \n{{otp}} is the OTP for your Registration Process. This is usable once and valid for 5 minutes from the request. \nPlease donot share it with anyone...\n\nLike Our Facebook Page https://www.facebook.com/excelsior.uiet \nFollow us on Instagram https://www.instagram.com/excelsioruiet')
+            otp = otp_obj.generateOtp()
+            otp_obj.send(mob_no, 'EXCLSR', otp)
             user.save()
         return user
 

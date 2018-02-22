@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from .views import BaseView
 from Participation.views import participate_detail_api_view
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', BaseView.as_view()),
     path('accounts/', include('Accounts.urls')),
     path('Events/', include('Events.urls')),
     path('participation/', include('Participation.urls')),
