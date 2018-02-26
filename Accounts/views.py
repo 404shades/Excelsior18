@@ -3,7 +3,7 @@ from django.utils.http import is_safe_url
 from django.views.generic import FormView, CreateView
 import sendotp
 from .forms import LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 # Create your views here.
 User = get_user_model()
 
@@ -44,3 +44,9 @@ class RegisterView(CreateView):
     #     otp = otp_obj.generateOtp()
     #     otp_obj.send(mob_no, 'EXCLSR', otp)
     #     return redirect('/accounts/login')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+

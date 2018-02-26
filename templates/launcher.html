@@ -32,16 +32,88 @@
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{% static 'Launcher/css/launcher.css' %}">
+<link rel="stylesheet" href="{% static 'base/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/sweetalert/dist/sweetalert.css' %}">
+    <link rel="stylesheet" href="{% static 'base/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900">
 
     <!-- Color Switcher Style -->
     <!-- alternate style start || to use your preferred color, simply remove all style colors below and leave only your preferred color -->
     <link href="{% static 'Launcher/css/colors/blue-2.css' %}" rel="stylesheet">
+
+    <style>
+        #button{
+            position: absolute;
+            font-family: "Arial", "sans-serif";
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border: 2px solid white;
+            outline: 1px solid rgba(255,255,255,.7);
+            -webkit-transition: all .7s;
+            -moz-transition: all .7s;
+            -ms-transition: all .7s;
+            -o-transition: all .7s;
+            transition: all .7s;
+        }
+        #button:hover{
+            text-shadow: 0 0 20px rgba(255,255,255,1);
+            -webkit-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            -moz-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            outline-color: rgba(255,255,255,0);
+            outline-offset: 15px;
+        }
+    </style>
     <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
     <script src="{% static 'Launcher/js/modernizr-2.8.3.min.js' %}"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg main-navbar">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">
+			  	<img src="{% static 'Launcher/images/logo-light.png' %}" alt="Logo">
+			  </a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon">
+			    	<i class="ion-navicon"></i>
+			    </span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				  <div class="mr-auto"></div>
+			    <ul class="navbar-nav">
+			      <li class="nav-item active">
+			        <a class="nav-link smooth-link" href="/">Home</a>
+			      </li>
+                <li class="nav-item">
+			        <a class="nav-link smooth-link" href="">About Us</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link smooth-link" href="{% url 'Events:events' %}">All Events</a>
+			      </li>
+                    {% if request.user.is_authenticated %}
+					<li class="nav-item">
+			        <a class="nav-link smooth-link" href="{% url 'Accounts:logout' %}">Logout</a>
+			      </li>
+                    {% else %}
+                    <li class="nav-item">
+			        <a class="nav-link smooth-link" href="{% url 'Accounts:login' %}">Login</a>
+			      </li>
+                    {% endif %}
+
+			    </ul>
+{#			    <form class="form-inline">#}
+{#				    <a href="#contact" class="btn smooth-link align-middle btn-primary">Need Help?</a>#}
+{#			    </form>#}
+			  </div>
+		  </div>
+		</nav>
 
 <div class="screen-loader"></div><!-- screen loader end -->
 <!-- preload start -->
@@ -52,6 +124,7 @@
 
 <!-- === Header Section === -->
 <div id="container">
+
 	<!-- +++ Intro Section ++++ -->
     <section class="intro">
     	<div class="bg-overlay"></div>
@@ -99,7 +172,11 @@
 				<!-- ==== Intro Section Sub-Heading ==== -->
 
 				<div class="intro-subtitle">
-					<p>We are currently Creating Something Awesome.</p>
+                    {% if not request.user.is_authenticated %}
+					<a href="{% url 'Accounts:register' %}" id="button">Register Now</a>
+                    {% else %}
+                    <a href="{% url 'Events:events' %}" id="button">All Events</a>
+                    {% endif %}
 				</div>
 
 			</div> <!-- /End Intro Section Content -->
@@ -108,26 +185,26 @@
 		<div class="container-bottom-content">
 			<!-- ==== Social Links ==== -->
 			<div class="social">
-				<a href="https://www.facebook.com"><i class="fa fa-facebook fa-2x fa-social"></i></a>
-				<a href="https://www.twitter.com"><i class="fa fa-twitter fa-2x fa-social"></i></a>
-				<a href="https://www.linkedin.com"><i class="fa fa-linkedin fa-2x fa-social"></i></a>
-				<a href="https://www.plus.google.com"><i class="fa fa-google-plus fa-2x fa-social"></i></a>
+				<a href="https://www.facebook.com/excelsior.uiet/" target="_blank"><i class="fa fa-facebook fa-2x fa-social"></i></a>
+				<a href="https://www.twitter.com/rohanforyou" target="_blank"><i class="fa fa-twitter fa-2x fa-social"></i></a>
+				<a href="https://www.instagram.com/excelsioruiet" target="_blank"><i class="fa fa-instagram fa-2x fa-social"></i></a>
+				<a href="https://www.youtube.com/channel/UC1fiaNn27uESX7U739czPeQ" target="_blank"><i class="fa fa-youtube-play fa-2x fa-social"></i></a>
 			</div> <!-- /End Social Links -->
 
 			<!-- ==== Notify Section ==== -->
-			<div class="notify-after text-center">
-				<h2>Notify Me</h2>
-				<p>Subscribe our mail list for Latest update</p>
-				<form id="mc-form" class="form-inline" role="form">
-					<div class="form-group subscribe-form">
-						<input id="mc-email" type="email" placeholder="Your email" class="form-control input-label input-notify-after">
-						<button type="submit" class="btn btn-default btn-notify-after"><i class="fa fa-send-o"></i></button>
-					</div><!-- End email input -->
-					<div class="subscribe_lebel">
-						<label for="mc-email"></label>
-					</div>
-				</form>
-			</div> <!-- /End Notify Section -->
+{#			<div class="notify-after text-center">#}
+{#				<h2>Notify Me</h2>#}
+{#				<p>Subscribe our mail list for Latest update</p>#}
+{#				<form id="mc-form" class="form-inline" role="form">#}
+{#					<div class="form-group subscribe-form">#}
+{#						<input id="mc-email" type="email" placeholder="Your email" class="form-control input-label input-notify-after">#}
+{#						<button type="submit" class="btn btn-default btn-notify-after"><i class="fa fa-send-o"></i></button>#}
+{#					</div><!-- End email input -->#}
+{#					<div class="subscribe_lebel">#}
+{#						<label for="mc-email"></label>#}
+{#					</div>#}
+{#				</form>#}
+{#			</div> <!-- /End Notify Section -->#}
 
 			<!-- ==== Trigger Button ==== -->
 			<button class="trigger">
