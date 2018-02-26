@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', BaseView.as_view()),
     path('accounts/', include('Accounts.urls')),
-    path('Events/', include('Events.urls')),
+    path('events/', include('Events.urls')),
     path('participation/', include('Participation.urls')),
     path('api/participate', participate_detail_api_view, name='api-detail'),
 ]

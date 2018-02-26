@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView, ListView
+
 from .models import Participate
 from Events.models import Event
 from django.http import JsonResponse
@@ -49,4 +51,18 @@ def participate_update(request):
             return JsonResponse(jsonData)
     return redirect("Participation:home")
 
+
+class Profile(ListView):
+    template_name = 'Profile/index.html'
+
+    def get_queryset(self):
+        qs = Participate.objects.new_or_get(self.request)
+        return qs
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super(Profile, self).get_context_data(**kwargs)
+        data['profil']  = self.request.user
+        part_obj, newing = Participate.objects.new_or_get(self.request)
+        data['participation'] =  part_obj
+        return data
 

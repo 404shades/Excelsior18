@@ -4,7 +4,7 @@ from .models import Event, Category, SubCategory
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['title', 'area']
+    list_display = ['title', 'area','image']
 
 
 admin.site.register(Event, EventAdmin)

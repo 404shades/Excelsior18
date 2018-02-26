@@ -1,6 +1,8 @@
 from django.db import models
 import random
 import os
+from django.db.models.signals import pre_save
+from .utils import unique_slug_generator
 from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
@@ -21,12 +23,24 @@ def upload_image_path(instance, filename):
 
 
 class Category(models.Model):
+    back_cover = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     title = models.CharField(max_length=100)
-    team_head_name = models.CharField(max_length=100)
-    team_head_mobile = PhoneNumberField(blank=True, null=True)
+    team_head_name = models.TextField(max_length=1000)
+    team_head_mobile = models.TextField(max_length=1000, blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True, max_length=250)
 
     def __str__(self):
         return self.title
+
+
+def rl_pre_save_receiver(sender,instance,**kwargs):
+    instance.title = instance.title.capitalize()
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)
+        instance.save()
+
+
+pre_save.connect(rl_pre_save_receiver,sender=Category)
 
 
 class SubCategory(models.Model):
