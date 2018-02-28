@@ -17,36 +17,28 @@
 	<link rel="stylesheet" href="{% static 'ALl Events/ionicons-2.0.1/css/ionicons.min.css' %}">
 	<link rel="stylesheet" href="{% static 'ALl Events/css/magnific-popup.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'ALl Events/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
 </head>
 <body>
-	<section class="head">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<header class="header">
-						<div class="inner">
-							<!--<a href="#menu" class="nav-bars">-->
-								<!--<img src="assets/images/nav-icon.png" class="img-responsive" alt="Collapsable Navbar">-->
-							<!--</a>-->
-							<a href="/" class="logo">
-								EXCE<span><img src="{% static 'ALl Events/images/logo.png'%}"></span>SIOR
-							</a>
-						</div>
-					</header>
 
-					<!-- Menu -->
+<div id="MenuIcon">
+    <div id="MenuLine"></div>
+</div>
+<div id="MainRohan">
+    <div id="logging">
+        <img src="{% static 'Launcher/images/white.png' %}">
+    </div>
+    <ul class="rohan">
+        <li>All Events<div class="line"></div></li>
+        <li>PROFILE<div class="line"></div></li>
+        <li>LOGOUT<div class="line"></div></li>
+        <li>REGISTER<div class="line"></div></li>
+    </ul>
+     <div id="closer">
+        <img src="{% static 'Launcher/images/closebutton.png' %}">
+    </div>
+</div>
 
-					<!--<nav id="menu">-->
-						<!--<h2>Menu</h2>-->
-						<!--<ul>-->
-							<!--<li><a href="index.html">Home</a></li>-->
-							<!--<li><a href="elements.html">Elements</a></li>-->
-						<!--</ul>-->
-					<!--</nav>-->
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<section class="header_slide">
 		<div class="container-fluid">
@@ -513,13 +505,40 @@
 		</div>
 	</section>
 
-
 	<script src="{% static 'ALl Events/js/jquery-3.1.0.min.js' %}"></script>
 	<script src="{% static 'ALl Events/js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'ALl Events/js/owl.carousel.min.js' %}"></script>
 	<script src="{% static 'ALl Events/js/jquery.magnific-popup.min.js' %}"></script>
 	
 	<script src="{% static 'ALl Events/js/script.js' %}"></script>
+<script>
+    $(document).ready(function () {
+    $('#MenuIcon').click(function () {
+        console.log("lojkjkjk");
+        $('#MainRohan').css("left", "0px");
+        function showMenu() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,100% 100%,0% 100%)");
+            $("#MenuIcon").animate({right: '-100'},300);
+        }
+        setTimeout(showMenu, 100);
+    });
+    $('#closer').click(function () {
+        console.log("Rohan Maki");
+        $('#MainRohan').css("clip-path",'polygon(0 0,0% 0,100% 100%,0% 100%)');
+        function hideMenu() {
+            $('#MainRohan').css("left", "-200%");
+            $('#MenuIcon').animate({right: '50'},300);
+        }
+        setTimeout(hideMenu,300);
+
+        function originalLayout() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,0% 100%,0% 100%)");
+        }
+        setTimeout(originalLayout, 600);
+    });
+});
+
+    </script>
 	
 </body>
 </html>

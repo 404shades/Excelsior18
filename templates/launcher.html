@@ -46,7 +46,7 @@
         #button{
             position: absolute;
             font-family: "Arial", "sans-serif";
-            top: 70%;
+            top: 80%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
@@ -75,45 +75,39 @@
     <script src="{% static 'Launcher/js/modernizr-2.8.3.min.js' %}"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg main-navbar">
-			<div class="container-fluid">
-			  <a class="navbar-brand" href="#">
-			  	<img src="{% static 'Launcher/images/logo-light.png' %}" alt="Logo">
-			  </a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon">
-			    	<i class="ion-navicon"></i>
-			    </span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarNav">
-				  <div class="mr-auto"></div>
-			    <ul class="navbar-nav">
-			      <li class="nav-item active">
-			        <a class="nav-link smooth-link" href="/">Home</a>
-			      </li>
-                <li class="nav-item">
-			        <a class="nav-link smooth-link" href="">About Us</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link smooth-link" href="{% url 'Events:events' %}">All Events</a>
-			      </li>
-                    {% if request.user.is_authenticated %}
-					<li class="nav-item">
-			        <a class="nav-link smooth-link" href="{% url 'Accounts:logout' %}">Logout</a>
-			      </li>
-                    {% else %}
-                    <li class="nav-item">
-			        <a class="nav-link smooth-link" href="{% url 'Accounts:login' %}">Login</a>
-			      </li>
-                    {% endif %}
 
-			    </ul>
-{#			    <form class="form-inline">#}
-{#				    <a href="#contact" class="btn smooth-link align-middle btn-primary">Need Help?</a>#}
-{#			    </form>#}
-			  </div>
-		  </div>
-		</nav>
+
+<div id="MenuIcon">
+    <div id="MenuLine"></div>
+</div>
+
+{#<div id="MainMenuer">#}
+{#    <ul>#}
+{#        <li>HOME<div class="line"></div> </li>#}
+{#        <li>ABOUT US<div class="line"></div> </li>#}
+{#        <li>EVENTS<div class="line"></div> </li>#}
+{#        <li>CONTACT US<div class="line"></div> </li>#}
+{#        <li>NOTIFICATIONS<div class="line"></div> </li>#}
+{#    </ul>#}
+{#    <div id="closer">#}
+{#        <img src="{% static 'Launcher/images/closebutton.png' %}" height="30px" width="30px"/>#}
+{#    </div>#}
+{#</div>#}
+
+<div id="MainRohan">
+    <div id="logging">
+        <img src="{% static 'Launcher/images/white.png' %}">
+    </div>
+    <ul class="rohan">
+        <li>HOME<div class="line"></div></li>
+        <li>ABOUT US<div class="line"></div></li>
+        <li>EVENTS<div class="line"></div></li>
+        <li>ROHAN<div class="line"></div></li>
+    </ul>
+     <div id="closer">
+        <img src="{% static 'Launcher/images/closebutton.png' %}">
+    </div>
+</div>
 
 <div class="screen-loader"></div><!-- screen loader end -->
 <!-- preload start -->
@@ -211,7 +205,7 @@
 			</button>
 		</div> <!-- /End Intro Section Bottom Content -->
 	</section><!-- /end intro section -->
-
+</div>
 
 <!-- jQuery Library -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -243,30 +237,31 @@
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
 <script>
-    $(function(){
-
-        $("#typed").typed({
-            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
-            stringsElement: $('#typed-strings'),
-            typeSpeed: 100,
-            backDelay: 1000,
-            loop: true,
-            contentType: 'html', // or text
-            // defaults to false for infinite loop
-            loopCount: false,
-            callback: function(){ foo(); },
-            resetCallback: function() { newTyped(); }
-        });
-
-        $(".reset").click(function(){
-            $("#typed").typed('reset');
-        });
-
+    $(document).ready(function () {
+    $('#MenuIcon').click(function () {
+        console.log("lojkjkjk");
+        $('#MainRohan').css("left", "0px");
+        function showMenu() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,100% 100%,0% 100%)");
+            $("#MenuIcon").animate({right: '-100'},300);
+        }
+        setTimeout(showMenu, 100);
     });
+    $('#closer').click(function () {
+        console.log("Rohan Maki");
+        $('#MainRohan').css("clip-path",'polygon(0 0,0% 0,100% 100%,0% 100%)');
+        function hideMenu() {
+            $('#MainRohan').css("left", "-200%");
+            $('#MenuIcon').animate({right: '50'},300);
+        }
+        setTimeout(hideMenu,300);
 
-    function newTyped(){ /* A new typed object */ }
-
-    function foo(){ console.log("Callback"); }
+        function originalLayout() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,0% 100%,0% 100%)");
+        }
+        setTimeout(originalLayout, 600);
+    });
+});
 
     </script>
 </body>
