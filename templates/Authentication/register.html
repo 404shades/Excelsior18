@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block title %}Excelsior|Register{% endblock %}
+{% load static %}
+{% block styling %}
+    <link rel="stylesheet" href="{% static 'Launcher/css/register.css' %}">
+{% endblock %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Register"/>
-</form>
+    <div id="particles-js">
+    <div class="loginbox">
+    <h1>Register Here</h1>
+        <form method="post">
+            {% csrf_token %}
+        {{ form|crispy }}
+            <hr>
+            <input type="submit" class="btn btn-block" value="Login">
+        </form>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', '{% static 'Launcher/js/particles.json' %}', function () {
+            console.log('Particles.json Loaded')
+        })
+    </script>
 {% endblock %}

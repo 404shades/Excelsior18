@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.utils.http import is_safe_url
 from django.views.generic import FormView, CreateView
 import sendotp
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, VerificationForm
 from django.contrib.auth import authenticate, login, get_user_model, logout
 # Create your views here.
+import json
 User = get_user_model()
 
 
@@ -31,9 +32,15 @@ class LoginView(FormView):
 
 class RegisterView(CreateView):
     form_class = RegisterForm
-    success_url = '/accounts/login'
+    success_url = '/accounts/verify/'
     template_name = 'Authentication/register.html'
 
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        request = self.request
+        request.session['user_one'] = form.cleaned_data.get('email')
+        form.save()
+        return redirect('/accounts/verify/')
     # def post(self, request, *args, **kwargs):
     #     print("welcome Rohan Malik")
     #     user = self.request.POST['full_name']
@@ -50,3 +57,24 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
+class VerificationOTP(FormView):
+    form_class = VerificationForm
+    template_name = 'Authentication/verify.html'
+
+    def form_valid(self, form):
+        request = self.request
+        user = User.objects.get(email=request.session.get('user_one'))
+        otpobj = sendotp.sendotp.sendotp('197589AXDtCunMpPbM5a7eba71','')
+        mobile_no = user.get_mobile().strip("+")
+        otp = form.cleaned_data.get("otpinput")
+        js = otpobj.verify(mobile_no, otp)
+        print(type(js))
+        if js==200:
+            user.active = True
+            print(user)
+            del request.session['user_one']
+            return redirect('/accounts/login/')
+        else:
+            print('CHLL Be Chutie')
+            super(VerificationOTP,self).form_invalid(form)

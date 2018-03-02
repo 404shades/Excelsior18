@@ -1,242 +1,211 @@
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en-US">
+    <!--<![endif]-->
 
-    <title>Excelsior||2018</title>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            EXCELSIOR 2018|| ANNUAL TECHNO CULTURAL FEST OF UIET KUK
+        </title><!-- Behavioral Meta Data -->
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><!-- Core Meta Data -->
+        <meta content="ThemeWagon" name="author">
+        <meta content="The most spectacular coming soon template!" name="description">
+        <meta content="Comming Soon, Responsive, Landing Page, One Page" name="keywords"><!-- Open Graph Meta Data -->
+        <meta content="The most spectacular coming soon template!">
+        <meta content="ThemeWagon">
+        <meta content="ThemeWagon">
+        <meta content="website">
+        <meta content="index.html"><!-- Twitter Card Meta Data -->
+        <meta content="summary" name="twitter:card">
+        <meta content="@themewagon" name="twitter:site">
+        <meta content="@themewagon" name="twitter:creator">
+        <meta content="ThemeWagon" name="twitter:title">
+        <meta content="Imminent - The most spectacular coming soon template!" name="twitter:description">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Responsive View Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="{% static 'Launcher/images/exc.ico' %}">
-    <!-- Animate.CSS -->
-    <link rel="stylesheet" href="{% static 'Launcher/css/animate.css' %}">
-
-    <!-- Font Aewsome Style -->
-    <link rel="stylesheet" href="{% static 'Launcher/css/font-awesome.min.css' %}">
-
-	<!-- Fullscreen Background Slider -->
-    <link href="{% static 'Launcher/css/jquery.maximage.min.css' %}" rel="stylesheet">
-
-    <!-- Bootstrap Style -->
-    <link rel="stylesheet" href="{% static 'Launcher/css/bootstrap.min.css' %}">
-
-    <!-- Reset Style -->
-    <link rel="stylesheet" href="{% static 'Launcher/css/normalize.css' %}">
-
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{% static 'Launcher/css/launcher.css' %}">
-<link rel="stylesheet" href="{% static 'base/ionicons/css/ionicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'base/sweetalert/dist/sweetalert.css' %}">
-    <link rel="stylesheet" href="{% static 'base/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'navbar.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900">
-
-    <!-- Color Switcher Style -->
-    <!-- alternate style start || to use your preferred color, simply remove all style colors below and leave only your preferred color -->
-    <link href="{% static 'Launcher/css/colors/blue-2.css' %}" rel="stylesheet">
-
-    <style>
-        #button{
-            position: absolute;
-            font-family: "Arial", "sans-serif";
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-decoration: none;
-            padding: 15px 40px;
-            border: 2px solid white;
-            outline: 1px solid rgba(255,255,255,.7);
-            -webkit-transition: all .7s;
-            -moz-transition: all .7s;
-            -ms-transition: all .7s;
-            -o-transition: all .7s;
-            transition: all .7s;
-        }
-        #button:hover{
-            text-shadow: 0 0 20px rgba(255,255,255,1);
-            -webkit-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
-            -moz-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
-            box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
-            outline-color: rgba(255,255,255,0);
-            outline-offset: 15px;
-        }
-    </style>
-    <!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-    <script src="{% static 'Launcher/js/modernizr-2.8.3.min.js' %}"></script>
-</head>
-<body>
+        <link href="{% static 'base/exc.ico' %}" rel="shortcut icon" type="image/png">
+        <link rel="stylesheet" href={% static 'navbar.css' %}>
+        <link rel="stylesheet" href="{% static 'buttondrive.css' %}">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <!-- CSS -->
 
 
-<div id="MenuIcon">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
+
+
+        <link href="{% static 'Launcher/css/loader.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'Launcher/css/normalize.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'Launcher/css/font-awesome.min.css' %}">
+        <link href="{% static 'Launcher/css/style.css' %}" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="{% static 'Launcher/css/ie.css' %}" />
+        <![endif]-->
+        <!-- Javascript -->
+
+        <script src="{% static 'Launcher/js/jquery.js'%}"></script>
+    </head>
+    <body>
+    <div id="MenuIcon">
     <div id="MenuLine"></div>
 </div>
-
-{#<div id="MainMenuer">#}
-{#    <ul>#}
-{#        <li>HOME<div class="line"></div> </li>#}
-{#        <li>ABOUT US<div class="line"></div> </li>#}
-{#        <li>EVENTS<div class="line"></div> </li>#}
-{#        <li>CONTACT US<div class="line"></div> </li>#}
-{#        <li>NOTIFICATIONS<div class="line"></div> </li>#}
-{#    </ul>#}
-{#    <div id="closer">#}
-{#        <img src="{% static 'Launcher/images/closebutton.png' %}" height="30px" width="30px"/>#}
-{#    </div>#}
-{#</div>#}
-
-<div id="MainRohan">
+    <div id="MainRohan">
     <div id="logging">
         <img src="{% static 'Launcher/images/white.png' %}">
     </div>
     <ul class="rohan">
-        <li>HOME<div class="line"></div></li>
-        <li>ABOUT US<div class="line"></div></li>
-        <li>EVENTS<div class="line"></div></li>
-        <li>ROHAN<div class="line"></div></li>
+        <li><a href="#"> All Events<div class="line"></div></a></li>
+        <li>PROFILE<div class="line"></div></li>
+        <li>LOGOUT<div class="line"></div></li>
+        <li>REGISTER<div class="line"></div></li>
     </ul>
      <div id="closer">
         <img src="{% static 'Launcher/images/closebutton.png' %}">
     </div>
 </div>
 
-<div class="screen-loader"></div><!-- screen loader end -->
-<!-- preload start -->
-<div id="preload">
-    <!-- preload status start -->
-    <div id="preload-status"></div><!-- preload status end -->
-</div><!-- preload end -->
+        <div class="preloader">
+            <div class="loading">
+                <h2>
+                    EXCELSIOR 2018...
+                </h2>
+                <span class="progress"></span>
+            </div>
+        </div>
 
-<!-- === Header Section === -->
-<div id="container">
+        <div class="wrapper">
+            <ul class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15" id="scene">
+                <li class="layer" data-depth="0.00">
+                </li>
+                <!-- BG -->
 
-	<!-- +++ Intro Section ++++ -->
-    <section class="intro">
-    	<div class="bg-overlay"></div>
-    	<!-- Fullscreen Background Slider Images -->
-		<div id="maximage">
-		    <img src="{% static 'Launcher/images/slide-one.jpg' %}" alt="">
-		    <img src="{% static 'Launcher/images/slide-two.jpg' %}" alt="">
-		</div>
+                <li class="layer" data-depth="0.10">
+                    <div class="background">
+                    </div>
+                </li>
 
-        	<div class="center-content">
-			<div class="intro-content text-center">
-				<!-- Logo -->
-				<div class="logo">
-					<h2 class="text-logo wow wobble">Excelsior 2018</h2>
-				</div><!-- /End logo -->
-				<!-- ==== Main Heading ==== -->
-				<h1 class="intro-title">We are Comming Soon<span class="obak">!</span></h1>
+                <!-- Hero -->
 
-				<!--Spin Clock -->
-				<i class="fa fa-clock-o fa-spin fa-4x fa-clock-spin"></i>
+                <li class="layer" data-depth="0.20">
+                    <div class="title">
+                        <h2>
+                            EXCELSIOR 18
+                        </h2>
+                        <span class="line"></span>
+                    </div>
+                </li>
 
-				<!-- ====+++ Countdown Timer +++==== -->
-				<ul class="countdown">
-			        <li>
-			            <span class="days">00</span>
-			            <p class="days-ref">days</p>
-			        </li>
-			        <li class="seperator"><i class="fa fa-spin fa-clock-o"></i><br><i class="fa fa-spin fa-clock-o"></i></li>
-			        <li>
-			            <span class="hours">00</span>
-			            <p class="hours-ref">hours</p>
-			        </li>
-			        <li class="seperator"><i class="fa fa-spin fa-clock-o"></i><br><i class="fa fa-spin fa-clock-o"></i></li>
-			        <li>
-			            <span class="minutes">00</span>
-			            <p class="minutes-ref">minutes</p>
-			        </li>
-			        <li class="seperator"><i class="fa fa-spin fa-clock-o"></i><br><i class="fa fa-spin fa-clock-o"></i></li>
-			        <li>
-			            <span class="seconds">00</span>
-			            <p class="seconds-ref">seconds</p>
-			        </li>
-			    </ul>
+                <li class="layer" data-depth="0.25">
+                    <div class="sphere">
+                        <img alt="sphere" src="{% static 'Launcher/images/logo.png' %}">
+                    </div>
+                </li>
 
-				<!-- ==== Intro Section Sub-Heading ==== -->
+                <li class="layer" data-depth="0.30">
+                    <div class="hero">
+                        <h1 id="countdown">
+                            WE ARE COMING SOON
+                        </h1>
+                            <br><br><br><br>
+                        <p class="sub-title">
+                            <a href="#" id="button">All Events</a>
+                        </p>
+                    </div>
+                </li>
+                <!-- Flakes -->
 
-				<div class="intro-subtitle">
-                    {% if not request.user.is_authenticated %}
-					<a href="{% url 'Accounts:register' %}" id="button">Register Now</a>
-                    {% else %}
-                    <a href="{% url 'Events:events' %}" id="button">All Events</a>
-                    {% endif %}
-				</div>
+                <li class="layer" data-depth="0.40">
+                    <div class="depth-1 flake1">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth1/flakes1.png' %}">
+                    </div>
 
-			</div> <!-- /End Intro Section Content -->
-		</div>
-		<!-- ==== Intro Section Bottom Content ==== -->
-		<div class="container-bottom-content">
-			<!-- ==== Social Links ==== -->
-			<div class="social">
-				<a href="https://www.facebook.com/excelsior.uiet/" target="_blank"><i class="fa fa-facebook fa-2x fa-social"></i></a>
-				<a href="https://www.twitter.com/rohanforyou" target="_blank"><i class="fa fa-twitter fa-2x fa-social"></i></a>
-				<a href="https://www.instagram.com/excelsioruiet" target="_blank"><i class="fa fa-instagram fa-2x fa-social"></i></a>
-				<a href="https://www.youtube.com/channel/UC1fiaNn27uESX7U739czPeQ" target="_blank"><i class="fa fa-youtube-play fa-2x fa-social"></i></a>
-			</div> <!-- /End Social Links -->
+                    <div class="depth-1 flake2">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth1/flakes2.png' %}">
+                    </div>
 
-			<!-- ==== Notify Section ==== -->
-{#			<div class="notify-after text-center">#}
-{#				<h2>Notify Me</h2>#}
-{#				<p>Subscribe our mail list for Latest update</p>#}
-{#				<form id="mc-form" class="form-inline" role="form">#}
-{#					<div class="form-group subscribe-form">#}
-{#						<input id="mc-email" type="email" placeholder="Your email" class="form-control input-label input-notify-after">#}
-{#						<button type="submit" class="btn btn-default btn-notify-after"><i class="fa fa-send-o"></i></button>#}
-{#					</div><!-- End email input -->#}
-{#					<div class="subscribe_lebel">#}
-{#						<label for="mc-email"></label>#}
-{#					</div>#}
-{#				</form>#}
-{#			</div> <!-- /End Notify Section -->#}
+                    <div class="depth-1 flake3">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth1/flakes3.png' %}">
+                    </div>
 
-			<!-- ==== Trigger Button ==== -->
-			<button class="trigger">
-			</button>
-		</div> <!-- /End Intro Section Bottom Content -->
-	</section><!-- /end intro section -->
-</div>
+                    <div class="depth-1 flake4">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth1/flakes4.png' %}">
+                    </div>
+                </li>
 
-<!-- jQuery Library -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-<!-- Modernizer -->
-<script src="{% static 'Launcher/js/modernizr.custom.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'Launcher/js/bootstrap.min.js' %}"></script>
-<!-- Background Slideshow -->
-<script src="{% static 'Launcher/js/jquery.cycle.all.min.js' %}"></script>
-<script src="{% static 'Launcher/js/jquery.maximage.min.js' %}"></script>
-<!-- Classie JS -->
-<script src="{% static 'Launcher/js/classie.js' %}"></script>
-<!-- Countdown JS -->
-<script src="{% static 'Launcher/js/jquery.downCount.js' %}"></script>
-<!-- Mailchimp JS Plugin -->
-<script src="{% static 'Launcher/js/jquery.ajaxchimp.min.js' %}"></script>
-<!-- Contact Form JS -->
-<script src="{% static 'Launcher/js/form-contact.js' %}"></script>
-<!-- Goole map API -->
-<!-- Google map js -->
-<!-- Nice Scroll JS -->
-<script src="{% static 'Launcher/js/jquery.nicescroll.3.5.4.js' %}"></script>
-<!-- Style Switcher JS -->
-<!-- Plugin Initialization js -->
-<script src="{% static 'Launcher/js/plugins.js' %}"></script>
-<!-- Custom JS -->
-<script src="{% static 'Launcher/js/main.js' %}"></script>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+                <li class="layer" data-depth="0.50">
+                    <div class="depth-2 flake1">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth2/flakes1.png' %}">
+                    </div>
 
-<script>
+                    <div class="depth-2 flake2">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth2/flakes2.png' %}">
+                    </div>
+                </li>
+
+                <li class="layer" data-depth="0.60">
+                    <div class="depth-3 flake1">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth3/flakes1.png'%}">
+                    </div>
+
+                    <div class="depth-3 flake2">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth3/flakes2.png' %}">
+                    </div>
+
+                    <div class="depth-3 flake3">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth3/flakes3.png' %}">
+                    </div>
+
+                    <div class="depth-3 flake4">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth3/flakes4.png' %}">
+                    </div>
+                </li>
+
+                <li class="layer" data-depth="0.80">
+                    <div class="depth-4">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth4/flakes.png' %}">
+                    </div>
+                </li>
+
+                <li class="layer" data-depth="1.00">
+                    <div class="depth-5">
+                        <img alt="flake" src="{% static 'Launcher/images/flakes/depth5/flakes.png' %}">
+                    </div>
+                </li>
+                <!-- Contact -->
+
+                <li class="layer" data-depth="0.20">
+                    <div class="contact">
+                        <ul class="icons">
+                            <li>
+                                <a class="behance" href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+
+                            <li>
+                                <a class="twitter" href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+
+                            <li>
+                                <a class="dribbble" href="#"><i class="fa fa-youtube-play"></i></a>
+                            </li>
+                        </ul>
+                        MADE WITH LOVE <a href="https://themewagon.com/" target="_blank">TEAM EXCELSIOR</a>
+                        <a class="mail" href="mailto:info@example.com?subject=Hi%20ThemeWagon!">excelsior@gmail.com</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Javascript -->
+        <script src="{% static 'Launcher/js/plugins.js' %}"></script>
+        <script src="{% static 'Launcher/js/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'Launcher/js/main.js' %}"></script>
+    <script>
     $(document).ready(function () {
     $('#MenuIcon').click(function () {
         console.log("lojkjkjk");
@@ -264,5 +233,6 @@
 });
 
     </script>
-</body>
+
+    </body>
 </html>

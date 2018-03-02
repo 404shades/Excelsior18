@@ -57,7 +57,7 @@ class User(AbstractBaseUser):
     mobile_no = PhoneNumberField(null=True, blank=True)
     roll_no = models.CharField(null=True, blank=True, max_length=15)
     # mobile_no = PhoneNumberField()
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)
     admin  = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)

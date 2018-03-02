@@ -3011,7 +3011,7 @@
 
 /* Wrapper */
 
-	#wrapper {
+	#wrapper-technical {
 		-moz-transition: opacity 0.5s ease;
 		-webkit-transition: opacity 0.5s ease;
 		-ms-transition: opacity 0.5s ease;
@@ -3021,7 +3021,7 @@
 		overflow: hidden;
 	}
 
-		#wrapper > .bg {
+		#wrapper-technical > .bg {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -3036,13 +3036,13 @@
 			z-index: -1;
 		}
 
-			#wrapper > .bg.fixed {
+			#wrapper-technical > .bg.fixed {
 				position: fixed;
 				width: 100vw;
 				height: 100vh;
 			}
 
-		#wrapper.fade-in:before {
+		#wrapper-technical.fade-in:before {
 			-moz-pointer-events: none;
 			-webkit-pointer-events: none;
 			-ms-pointer-events: none;
@@ -3066,16 +3066,21 @@
 			width: 100%;
 		}
 
-		body.is-loading #wrapper.fade-in:before {
+		body.is-loading #wrapper-technical.fade-in:before {
 			opacity: 1;
 		}
 
 		@media screen and (orientation: portrait) {
 
-			#wrapper > .bg {
+			#wrapper-technical > .bg {
 				background-size: auto,								auto,														auto 175%;
 			}
 
+		}
+		@media only screen and (max-width: 500px) {
+			#wrapper-technical >.bg{
+				background-size: auto,auto,auto 130%;
+			}
 		}
 
 /* Intro */

@@ -10,7 +10,13 @@
 		<title>{{ head }}||Contact Team || Excelsior 18</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'Single Event/assets/css/main.css' %}" />
+		 {% if head == 'Technical' %}
+		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
+        {% elif head == 'Cultural' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/cultural.css' %}"/>
+        {% elif head == 'General' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
+        {% endif %}
         <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
 	</head>

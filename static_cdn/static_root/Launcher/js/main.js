@@ -1,85 +1,69 @@
-// Toggle Script
-(function() {
-	var container = document.getElementById( 'container' ),
-		trigger = container.querySelector( 'button.trigger' );
-
-	function toggleContent() {
-		if( classie.has( container, 'container-open' ) ) {
-			classie.remove( container, 'container-open' );
-			classie.remove( trigger, 'trigger-active' );
-			window.addEventListener( 'scroll', noscroll );
-		}
-		else {
-			classie.add( container, 'container-open' );
-			classie.add( trigger, 'trigger-active' );
-			window.removeEventListener( 'scroll', noscroll );
-		}
-	}
-
-	function noscroll() {
-		window.scrollTo( 0, 0 );
-	}
-
-	// reset scrolling position
-	document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-	// disable scrolling
-	window.addEventListener( 'scroll', noscroll );
-
-	trigger.addEventListener( 'click', toggleContent );
-
-	// For Demo purposes only (prevent jump on click)
-	[].slice.call( document.querySelectorAll('.content-wrapper a') ).forEach( function(el) { el.onclick = function() { return false; } } );
-})();
-
-// Background Image Sideshow
-(function(){
-    'use strict';
-
-    jQuery('#maximage').maximage();
-
-})();
-
-  // JavaScript Document
-
-
-// screen loader
-$(window).load(function() {
-    "use strict";
-    $('.screen-loader').fadeOut('slow');
+$(window).load(function(){
+     $('.preloader').fadeOut('slow');
 });
 
-// preload
-$(document).ready(function() {
-    "use strict";
-    $('#preload').css({
-        display: 'table'
-    });
-});
 
-// preload function
-$(window).load(preLoader);
-"use strict";
-function preLoader() {
-    setTimeout(function() {
-        $('#preload').delay(1000).fadeOut(1500);
-    });
+/* =Main INIT Function
+-------------------------------------------------------------- */
+function initializeSite() {
+
+	"use strict";
+
+	//OUTLINE DIMENSION AND CENTER
+	(function() {
+	    function centerInit(){
+
+			var sphereContent = $('.sphere'),
+				sphereHeight = sphereContent.height(),
+				parentHeight = $(window).height(),
+				topMargin = (parentHeight - sphereHeight) / 2;
+
+			sphereContent.css({
+				"margin-top" : topMargin+"px"
+			});
+
+			var heroContent = $('.hero'),
+				heroHeight = heroContent.height(),
+				heroTopMargin = (parentHeight - heroHeight) / 2;
+
+			heroContent.css({
+				"margin-top" : heroTopMargin+"px"
+			});
+
+	    }
+
+	    $(document).ready(centerInit);
+		$(window).resize(centerInit);
+	})();
+
+	// Init effect 
+	$('#scene').parallax();
+
 };
+/* END ------------------------------------------------------- */
 
-// niceScroll
-$(document).ready(function() {
-    "use strict";
-    $("body").niceScroll({
-        cursorcolor: "#fff",
-        cursorwidth: "5px",
-        cursorborder: "1px solid #fff",
-        cursorborderradius: "0px",
-        zindex: "9999",
-        scrollspeed: "60",
-        mousescrollstep: "40"
-    });
+/* =Document Ready Trigger
+-------------------------------------------------------------- */
+$(window).load(function(){
+
+	initializeSite();
+	(function() {
+		setTimeout(function(){window.scrollTo(0,0);},0);
+	})();
+
 });
+/* END ------------------------------------------------------- */
 
 
-// niceScroll || scrollbars resize
-$("body").getNiceScroll().resize();
+$('#countdown').countdown({
+	date: "April 06, 2018 18:03:26",
+	render: function(data) {
+	  var el = $(this.el);
+	  el.empty()
+	    //.append("<div>" + this.leadingZeros(data.years, 4) + "<span>years</span></div>")
+	    .append("<div>" + this.leadingZeros(data.days, 2) + " <span>days</span></div>")
+	    .append("<div>" + this.leadingZeros(data.hours, 2) + " <span>hrs</span></div>")
+	    .append("<div>" + this.leadingZeros(data.min, 2) + " <span>min</span></div>")
+	    .append("<div>" + this.leadingZeros(data.sec, 2) + " <span>sec</span></div>");
+	}
+});

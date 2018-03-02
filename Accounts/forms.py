@@ -85,9 +85,18 @@ class RegisterForm(forms.ModelForm):
             print(user)
             mob_no = user.get_mobile().strip("+")
             otp_obj = sendotp.sendotp.sendotp('197589AXDtCunMpPbM5a7eba71',
-                                              'Hello ' + username + '\nThank You For Signing Up with Excelsior 2018, \n{{otp}} is the OTP for your Registration Process. This is usable once and valid for 5 minutes from the request. \nPlease donot share it with anyone...\n\nLike Our Facebook Page https://www.facebook.com/excelsior.uiet \nFollow us on Instagram https://www.instagram.com/excelsioruiet')
+                                              'Hello ' + username + '\nThank You For Signing Up with Excelsior 2018, \n{{otp}} is the OTP for your Registration Process.')
             otp = otp_obj.generateOtp()
             otp_obj.send(mob_no, 'EXCLSR', otp)
             user.save()
         return user
 
+
+class VerificationForm(forms.Form):
+    otpinput = forms.CharField(label='Enter OTP RECEIVED', widget=forms.PasswordInput)
+
+    def clean_otpinput(self):
+        otp = self.cleaned_data.get('otpinput')
+        if len(otp)>4:
+            raise forms.ValidationError("Abe bewade pee rakhi h kya bc 4 akshar se bda dalega")
+        return otp

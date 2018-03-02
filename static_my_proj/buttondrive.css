@@ -3,6 +3,7 @@
             font-family: "Arial", "sans-serif";
             top: 70%;
             left: 50%;
+            z-index: 999;
             transform: translate(-50%, -50%);
             color: white;
             text-decoration: none;

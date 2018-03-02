@@ -42,7 +42,12 @@ class EventListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super(EventListView,self).get_context_data(**kwargs)
+        technical = False
         categ = get_object_or_404(Category, slug=self.kwargs['slug'])
+        sub_categ = categ.subcategory_set.all()
+        if sub_categ.exists():
+            if sub_categ.count() > 1:
+                technical = True
         heading = categ.title.split(' ', 1)[0].capitalize()
         request = self.request
         if request.user.is_authenticated:
@@ -50,6 +55,7 @@ class EventListView(ListView):
             data['participate'] = parting
         data['heading'] = heading
         data['urling'] = categ.slug
+        data['technical'] = technical
         return data
 
 

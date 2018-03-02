@@ -51,7 +51,7 @@
 #MainRohan{
     height: 100%;
     width: 30%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.6);
     clip-path:polygon(0 0,100% 0,0% 100%,0% 100%);
     position: fixed;
     top: 0;
@@ -67,7 +67,7 @@
     #MainRohan{
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.6);
     clip-path:polygon(0 0,100% 0,0% 100%,0% 100%);
     position: fixed;
     top: 0;

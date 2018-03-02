@@ -10,12 +10,29 @@
 		<title>{{ heading }}|| Excelsior 18</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'Single Event/assets/css/main.css' %}" />
+        {% if heading == 'Technical' %}
+		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
+        {% elif heading == 'Cultural' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/cultural.css' %}"/>
+        {% elif heading == 'General' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
+        {% endif %}
         <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-loading">
+        <div id="modal-02">
+            <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID-->
+            <div  id="btn-close-modal" class="close-modal-02">
+                CLOSE MODAL
+            </div>
 
+            <div class="modal-content">
+                <!--Your modal content goes here-->
+                dfnsdfnsmdfmbsdfmbfdm
+            </div>
+        </div>
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
@@ -76,11 +93,16 @@
 										<h2><a href="#">{{ obj.title }}
 										</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="{{ obj.image.url }}" alt="" /></a>
+									<a href="#" class="image fit">{% if obj.image %}<img src="{{ obj.image.url }}" alt="" />{% endif %}</a>
 									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
 									<ul class="actions">
 {#										<li><a href="#" class="button">Regsiter Now</a></li>#}
-                                        <li>{% include 'Events/Snippets/form.html' with event=obj participation=participate %}<li></li>
+                                        {% if technical and heading == 'Technical' %}
+                                            <li><a href="#" class="button">Go to {{ obj.title }}</a></li>
+                                            {% else %}
+                                        <li>{% include 'Events/Snippets/form.html' with event=obj participation=participate %}</li>
+                                        {% endif %}
+                                        <li><a href="#modal-02" class="button rules">Read More</a> </li>
                                     </ul>
 								</article>
                                 {% endfor %}
@@ -219,11 +241,20 @@
 
 		<!-- Scripts -->
 			<script src="{% static 'Single Event/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'Single Event/assets/js/animatedModal.min.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/jquery.scrollex.min.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/jquery.scrolly.min.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/skel.min.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/util.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/main.js' %}"></script>
+    <script>
+        $(".rules").animatedModal({
+            modalTarget: 'modal-02',
+            animatedIn:  'zoomIn',
+            animatedOut: 'bounceOut',
+            color: 'rgba(255,255,255,0.8)'
+        })
+    </script>
 
 	</body>
 </html>
