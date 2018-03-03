@@ -10,6 +10,7 @@
 		<title>{{ head }}||Contact Team || Excelsior 18</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% if subcat %}
         <link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
     {% endif %}
@@ -20,7 +21,7 @@
         {% elif head == 'General' %}
         <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
         {% endif %}
-        <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
+        <link rel="shortcut icon" href="{% static 'base/exc.ico' %}">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-loading">
@@ -38,13 +39,19 @@
 						<ul class="links">
 							<li><a href="{% if subcat %}/events/allevents/{{ urlfu }}/{{ urlsub }}{% else %}/events/allevents/{{ urlfu }}/{% endif %}">{{ head }} Events</a></li>
 							<li class="active"><a href="{% if subcat %}/events/allevents/{{ urlfu }}/{{ urlsub }}/contact{% else %}/events/allevents/{{ urlfu }}/contact{% endif %}">Contact Us</a></li>
+                        {% if not technical %}
                         <li><a href="{% if subcat %}/events/allevents/{{ urlfu }}/{{ urlsub }}/excelsior/rules{% else %}/events/allevents/{{ urlfu }}/excelsior/rules{% endif %}">Rules & Regulations</a> </li>
+                        {% endif %}
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-youtube-play"><span class="label">YouTube</span></a></li>
+							<li><a href="/" class="icon fa-home"><span class="label">HOME</span></a></li>
+							<li><a href="{% url 'Events:events' %}" class="icon fa-calendar"><span class="label">EVENTS</span></a></li>
+							<li><a href="{% url 'Participation:profile' %}" class="icon fa-user"><span class="label">PROFILE</span></a></li>
+                            {% if request.user.is_authenticated %}
+							<li><a href="{% url 'Accounts:logout' %}" class="icon fa-sign-out"><span class="label">SIGNOUT</span></a></li>
+                            {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="icon fa-sign-in"><span class="label">SIGNIN</span></a></li>
+                            {% endif %}
 						</ul>
 					</nav>
 
@@ -131,8 +138,16 @@
 					<!--</footer>-->
 
 				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com/">ThemeWagon</a></li></ul>
+					<div id="copyright" style="background-color: #141617; color: whitesmoke; padding: 25px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    UIET Kurukshetra<br>Kurukshetra Univerity<br>Kurukshetra-136119
+                                </div>
+                                <div class="col-md-6 col-sm-6">Made By <a href="/developers">404 Shades</a> </div>
+                            </div>
+                        </div>
+{#						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com">ThemeWagon</a></li></ul>#}
 					</div>
 
 			</div>

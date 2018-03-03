@@ -1,4 +1,4 @@
 <form class='event-add-ajax' method="POST" action="{% url "Participation:update" %}" data-endpoint="{% url "Participation:update" %}" class="form">{% csrf_token %}
     <input class="participation-event-id" type="hidden" name="event_id" value="{{ event_id }}"/>
-<button type="submit" class="btn" style="cursor: pointer; -webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px; color: #FFFFFF; background-color: #c83af8;">Remove</button>
+<button type="submit" id="button">Remove</button>
 </form>

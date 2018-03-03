@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Participate
 from Events.models import Event
 from django.http import JsonResponse
@@ -18,13 +18,13 @@ def participate_detail_api_view(request):
     return JsonResponse(jsondata)
 
 
-@login_required(login_url='/accounts/login/')
-def participate_home(request):
-    part_obj, new_obj = Participate.objects.new_or_get(request)
-    context = {
-        "participation": part_obj
-    }
-    return render(request, "Participation/index.html", context)
+# @login_required(login_url='/accounts/login/')
+# def participate_home(request):
+#     part_obj, new_obj = Participate.objects.new_or_get(request)
+#     context = {
+#         "participation": part_obj
+#     }
+#     return render(request, "Participation/index.html", context)
 
 
 @login_required(login_url='/accounts/login/')
@@ -34,7 +34,7 @@ def participate_update(request):
         try:
             obj = Event.objects.get(id=event_id)
         except Event.DoesNotExist:
-            return redirect("Participation:home")
+            return redirect("Participation:profile")
         part_obj, new_obj = Participate.objects.new_or_get(request)
         if obj in part_obj.eventspart.all():
             part_obj.eventspart.remove(obj)
@@ -49,10 +49,10 @@ def participate_update(request):
                 "removed": not part_added,
             }
             return JsonResponse(jsonData)
-    return redirect("Participation:home")
+    return redirect("Participation:profile")
 
 
-class Profile(ListView):
+class Profile(LoginRequiredMixin,ListView):
     template_name = 'Profile/index.html'
 
     def get_queryset(self):

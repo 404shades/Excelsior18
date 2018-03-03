@@ -2,10 +2,10 @@
 
 #MenuIcon{
     height: 25px;
-    width: 50px;
+    width: 30px;
     position: fixed;
-    top:50px;
-    left: 50px;
+    top: 20px;
+    right: 50px;
 	z-index: 999;
 }
 #MenuIcon:hover{
@@ -13,7 +13,7 @@
 }
 #MenuLine{
     height: 4px;
-    width: 50px;
+    width: 30px;
     background-color: #FFFFFF;
     position: absolute;
     top: 50%;
@@ -27,7 +27,7 @@
 #MenuLine::before{
     content: '';
     height: 4px;
-    width: 40px;
+    width: 30px;
     background-color: #FFFFFF;
     position: absolute;
     margin-top: 10px;
@@ -39,7 +39,7 @@
 #MenuLine::after{
     content: '';
     height: 4px;
-    width: 40px;
+    width: 30px;
     background-color: #FFFFFF;
     position: absolute;
     margin-top: -10px;

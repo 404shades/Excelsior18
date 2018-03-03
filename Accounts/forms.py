@@ -93,7 +93,7 @@ class RegisterForm(forms.ModelForm):
 
 
 class VerificationForm(forms.Form):
-    otpinput = forms.CharField(label='Enter OTP RECEIVED', widget=forms.PasswordInput)
+    otpinput = forms.CharField(label='', widget=forms.PasswordInput)
 
     def clean_otpinput(self):
         otp = self.cleaned_data.get('otpinput')

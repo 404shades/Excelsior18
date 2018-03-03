@@ -54,8 +54,8 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=255)
     full_name =  models.CharField(max_length=255)
-    mobile_no = PhoneNumberField(null=True, blank=True)
-    roll_no = models.CharField(null=True, blank=True, max_length=15)
+    mobile_no = PhoneNumberField()
+    roll_no = models.CharField(max_length=12)
     # mobile_no = PhoneNumberField()
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)

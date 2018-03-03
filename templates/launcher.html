@@ -11,20 +11,14 @@
             EXCELSIOR 2018|| ANNUAL TECHNO CULTURAL FEST OF UIET KUK
         </title><!-- Behavioral Meta Data -->
         <meta content="yes" name="apple-mobile-web-app-capable">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><!-- Core Meta Data -->
-        <meta content="ThemeWagon" name="author">
-        <meta content="The most spectacular coming soon template!" name="description">
-        <meta content="Comming Soon, Responsive, Landing Page, One Page" name="keywords"><!-- Open Graph Meta Data -->
-        <meta content="The most spectacular coming soon template!">
-        <meta content="ThemeWagon">
-        <meta content="ThemeWagon">
-        <meta content="website">
-        <meta content="index.html"><!-- Twitter Card Meta Data -->
-        <meta content="summary" name="twitter:card">
-        <meta content="@themewagon" name="twitter:site">
-        <meta content="@themewagon" name="twitter:creator">
-        <meta content="ThemeWagon" name="twitter:title">
-        <meta content="Imminent - The most spectacular coming soon template!" name="twitter:description">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta content="Excelsior 2018" name="title">
+        <meta content="UIET Kurukshetra" name="description">
+        <meta content="College Fest, Cultural Fest, Kurukshetra University, Kurukshetra" name="keywords">
+        <meta content="Excelsior 2018|| Annual Techno Cultural Fest Of Uiet KUK">
+        <meta content="Excelsior">
+        <meta content="Excelsior">
+        <meta content="UIET Kurukshetra">
 
         <link href="{% static 'base/exc.ico' %}" rel="shortcut icon" type="image/png">
         <link rel="stylesheet" href={% static 'navbar.css' %}>
@@ -39,7 +33,7 @@
 
 
         <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
-
+         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 
         <link href="{% static 'Launcher/css/loader.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'Launcher/css/normalize.css' %}" rel="stylesheet" type="text/css">
@@ -56,15 +50,24 @@
     <div id="MenuIcon">
     <div id="MenuLine"></div>
 </div>
+    {% if request.user.is_authenticated %}
+   <a id="button" href="{% url 'Events:events' %}">All Events</a>
+    {% else %}
+    <a id="button" href="{% url 'Accounts:login' %}">Login</a>
+    {% endif %}
     <div id="MainRohan">
     <div id="logging">
         <img src="{% static 'Launcher/images/white.png' %}">
     </div>
     <ul class="rohan">
-        <li><a href="#"> All Events<div class="line"></div></a></li>
-        <li>PROFILE<div class="line"></div></li>
-        <li>LOGOUT<div class="line"></div></li>
-        <li>REGISTER<div class="line"></div></li>
+        <li><a href="/">HOME<div class="lunar"></div></a> </li>
+        <li><a href="{% url 'Events:events' %}">ALL EVENTS<div class="lunar"></div></a></li>
+        <li><a href="{% url 'Participation:profile' %}">PROFILE<div class="lunar"></div></a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'Accounts:logout' %}">LOGOUT<div class="lunar"></div></a></li>
+            {% else %}
+            <li><a href="{% url 'Accounts:login' %}">LOGIN<div class="lunar"></div> </a> </li>
+        {% endif %}
     </ul>
      <div id="closer">
         <img src="{% static 'Launcher/images/closebutton.png' %}">
@@ -73,15 +76,13 @@
 
         <div class="preloader">
             <div class="loading">
-                <h2>
-                    EXCELSIOR 2018...
-                </h2>
-                <span class="progress"></span>
+                <img src="{% static 'Launcher/images/Preloader.gif' %}">
+{#                <span class="progress"></span>#}
             </div>
         </div>
 
         <div class="wrapper">
-            <ul class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15" id="scene">
+            <ul class="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15" id="scene">
                 <li class="layer" data-depth="0.00">
                 </li>
                 <!-- BG -->
@@ -91,14 +92,16 @@
                     </div>
                 </li>
 
-                <!-- Hero -->
+
 
                 <li class="layer" data-depth="0.20">
                     <div class="title">
                         <h2>
+                            UIET Kurukshetra Presents
+                            <span class="line"></span><br>
                             EXCELSIOR 18
                         </h2>
-                        <span class="line"></span>
+
                     </div>
                 </li>
 
@@ -107,19 +110,18 @@
                         <img alt="sphere" src="{% static 'Launcher/images/logo.png' %}">
                     </div>
                 </li>
-
                 <li class="layer" data-depth="0.30">
                     <div class="hero">
                         <h1 id="countdown">
-                            WE ARE COMING SOON
+                            We are Coming Soon!
                         </h1>
-                            <br><br><br><br>
+
                         <p class="sub-title">
-{#                            <a href="#" id="button">All Events</a>#}
+                            We are Coming Soon!
                         </p>
                     </div>
                 </li>
-                <!-- Flakes -->
+
 
                 <li class="layer" data-depth="0.40">
                     <div class="depth-1 flake1">
@@ -178,30 +180,30 @@
                         <img alt="flake" src="{% static 'Launcher/images/flakes/depth5/flakes.png' %}">
                     </div>
                 </li>
-                <!-- Contact -->
+
 
                 <li class="layer" data-depth="0.20">
                     <div class="contact">
                         <ul class="icons">
                             <li>
-                                <a class="behance" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="behance" href="https://www.fb.com/excelsior.uiet"><i class="fa fa-facebook"></i></a>
                             </li>
 
                             <li>
-                                <a class="twitter" href="#"><i class="fa fa-instagram"></i></a>
+                                <a class="twitter" href="https://www.instagram.com/excelsioruiet"><i class="fa fa-instagram"></i></a>
                             </li>
 
                             <li>
-                                <a class="dribbble" href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a class="dribbble" href="mailto:excelsior@gmail.com?subject=Hello%20Team%20Excelsior!"><i class="fa fa-google-plus-square"></i></a>
                             </li>
                         </ul>
-                        MADE WITH LOVE <a href="https://themewagon.com/" target="_blank">TEAM EXCELSIOR</a>
-                        <a class="mail" href="mailto:info@example.com?subject=Hi%20ThemeWagon!">excelsior@gmail.com</a>
+                        Made by <a href="https://www.fb.com/rohan4uu" target="_blank" style="color: whitesmoke;">404 shades </a>
+                        <a class="mail" href="">(Rohan Malik, Varsha)</a>
                     </div>
                 </li>
             </ul>
         </div>
-        <!-- Javascript -->
+
         <script src="{% static 'Launcher/js/plugins.js' %}"></script>
         <script src="{% static 'Launcher/js/jquery.countdown.min.js' %}"></script>
         <script src="{% static 'Launcher/js/main.js' %}"></script>
@@ -212,7 +214,7 @@
         $('#MainRohan').css("left", "0px");
         function showMenu() {
             $('#MainRohan').css("clip-path","polygon(0 0,100% 0,100% 100%,0% 100%)");
-            $("#MenuIcon").animate({right: '-100'},300);
+            $("#MenuIcon").animate({left: '-100'},300);
         }
         setTimeout(showMenu, 100);
     });
@@ -221,7 +223,7 @@
         $('#MainRohan').css("clip-path",'polygon(0 0,0% 0,100% 100%,0% 100%)');
         function hideMenu() {
             $('#MainRohan').css("left", "-200%");
-            $('#MenuIcon').animate({right: '50'},300);
+            $('#MenuIcon').animate({left: '40'},300);
         }
         setTimeout(hideMenu,300);
 

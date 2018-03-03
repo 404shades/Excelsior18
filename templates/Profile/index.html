@@ -20,11 +20,37 @@
     <link rel="stylesheet" href="{% static 'Profile/css/style.default.css' %}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{% static 'Profile/css/custom.css' %}">
+      <link rel="stylesheet" href="{% static 'Single Event/profilenav.css' %}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
+                                                        <link rel="shortcut icon" href="{% static 'base/exc.ico' %}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+           #button{
+            font-family: "Muli", "sans-serif";
+            color: white;
+            text-decoration: none;
+               background-color: transparent;
+            padding: 10px 30px;
+            border: 2px solid white;
+            outline: 1px solid rgba(255,255,255,.7);
+            -webkit-transition: all .7s;
+            -moz-transition: all .7s;
+            -ms-transition: all .7s;
+            -o-transition: all .7s;
+            transition: all .7s;
+        }
+        #button:hover{
+            text-shadow: 0 0 20px rgba(255,255,255,1);
+            cursor: pointer;
+            -webkit-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            -moz-box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            box-shadow: inset 0 0 20px rgba(255,255,255,.2), 0 0 20px rgba(255,255,255,0.3);
+            outline-color: rgba(255,255,255,0);
+            outline-offset: 15px;
+        }
+      </style>
   </head>
   <body>
     <header class="header">   
@@ -41,10 +67,28 @@
           <!--</div>-->
         <!--</div>-->
         <div class="container-fluid d-flex align-items-center justify-content-between">
-          <div class="navbar-header"><a href="index.html" class="navbar-brand">
-              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">EXCEL</strong><strong>SIOR</strong></div>
-              <div class="brand-text brand-sm"><strong class="text-primary">E</strong><strong>X</strong></div></a>
-            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+          <div class="navbar-header"><div class="navbar-brand">
+              <div id="MenuIcon">
+    <div id="MenuLine"></div>
+</div>
+<div id="MainRohan">
+    <div id="logging">
+        <img src="{% static 'Launcher/images/white.png' %}">
+    </div>
+    <ul class="rohan">
+        <li><a href="/">HOME<div class="lunar"></div></a> </li>
+        <li><a href="/events/allevents">ALL EVENTS<div class="lunar"></div></a></li>
+        <li><a href="{% url 'Participation:profile' %}">PROFILE<div class="lunar"></div></a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'Accounts:logout' %}">LOGOUT<div class="lunar"></div></a></li>
+            {% else %}
+            <li><a href="{% url 'Accounts:login' %}">LOGIN<div class="lunar"></div> </a> </li>
+        {% endif %}
+    </ul>
+     <div id="closer">
+        <img src="{% static 'Launcher/images/closebutton.png' %}">
+    </div>
+</div>
           </div>
           <!--<ul class="right-menu list-inline no-margin-bottom">-->
             <!--<li class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></li>-->
@@ -168,7 +212,7 @@
             <!--<li class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></li>-->
           <!--</ul>-->
         <!--</div>-->
-      </nav>
+        </div></nav>
     </header>
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
@@ -183,9 +227,9 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">My Profile</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>UIET Kurukshetra </a></li>
-                <li><a href="#"> <i class="icon-grid"></i>{{ profil.roll_no }} </a></li>
-                <li><a href="#"> <i class="fa fa-bar-chart"></i>{{ profil.get_mobile }} </a></li>
+                <li><a href="#"> <i class="fa fa-graduation-cap"></i>UIET Kurukshetra </a></li>
+            <li><a href="#"><i class="fa fa-compress"></i>{{ profil.roll_no }}</a> </li>
+            <li><a href="#"> <i class="fa fa-mobile"></i>{{ profil.get_mobile }}</a></li>
 {#                <li><a href="#"> <i class="icon-padnote"></i>{{ email }} </a></li>#}
                 <!--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>-->
                   <!--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">-->
@@ -197,7 +241,9 @@
                 <!--<li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>-->
         <!--</ul><span class="heading">Extras</span>-->
         <!--<ul class="list-unstyled">-->
-          <li><a href="#"> <i class="icon-settings"></i>{{ profil.email }} </a></li>
+          <li><a href="#"> <i class="fa fa-envelope"></i>{{ profil.email }} </a></li>
+            <li class="active"><a href="/"><i class="fa fa-home" ></i>Go To Home</a></li>
+            <li class="active"><a href="{% url "Events:events" %}"><i class="fa fa-calendar" ></i>Go To All events</a></li>
           <!--<li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>-->
           <!--<li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>-->
         </ul>
@@ -228,18 +274,21 @@
               <div class="col-md-9 col-sm-9 col-lg-9">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
+                  {% if participation.eventspart.all %}
                     <table class="table participation-table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Event</th>
+        <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody class="participation-body">
   {%  for event in participation.eventspart.all %}
     <tr class="participation-event">
       <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ event|upper }} {% include 'Participation/Snippets/removeparticipate.html' with event_id=event.id %} </td>
+        <th>{{ event|upper }} </th>
+    <th>{% include 'Participation/Snippets/removeparticipate.html' with event_id=event.id %}</th>
     </tr>
    {% endfor %}
   </tbody>
@@ -247,6 +296,11 @@
     <div class="participation-item-remove-form" style="display: none;">
     {% include 'Participation/Snippets/removeparticipate.html' %}
     </div>
+                  {% else %}
+                  <div class="title">
+                      <strong>You are not registered in any Event</strong>
+                  </div>
+                  {% endif %}
                   </div>
 {#                  <div class="progress progress-template">#}
 {#                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>#}
@@ -612,5 +666,106 @@
     <script src="{% static 'Profile/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'Profile/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
     <script src="{% static 'Profile/js/front.js' %}"></script>
+   <script>
+            $(document).ready(function () {
+                console.log("name", "Entered");
+                var event_form = $(".event-add-ajax");
+                event_form.submit(function (event) {
+                    console.log("Not An Issue");
+                    event.preventDefault();
+                    console.log("Form Is Not Sending");
+                    var thisForm = $(this);
+                    var action = thisForm.attr("data-endpoint");
+                    var method = thisForm.attr("method");
+                    var formData = thisForm.serialize();
+                    $.ajax({
+                        url: action,
+                        method: method,
+                        data:formData,
+                        success: function (data) {
+                            console.log(data.added);
+                            var submitSpan = thisForm.find(".submit-span");
+                            if(data.added){
+                                submitSpan.html("Already Registered <button type=\"submit\" class=\"btn btn-link\">Remove?</button>")
+                            }
+                            else {
+                                submitSpan.html("<button type=\"submit\" class=\"btn btn-success\">Register Now</button>")
+                            }
+                            if (window.location.href.indexOf("participation") !== -1){
+                                refreshParticipate()
+                            }
+                        },
+                        error: function (errorData) {
+                            console.log("error", errorData);
+                        }
+                    })
+                });
+
+               function refreshParticipate() {
+                   console.log("In the Participation Page");
+                   var home_participate_table = $(".participation-table");
+                   var home_participate_body = home_participate_table.find(".participation-body");
+                   var event_rows = home_participate_body.find('.participation-event');
+                   var currentUrl = window.location.href;
+                   var updateParticipateUrl = '/api/participate';
+                   var updateParticipateMethod = "GET";
+                   var data = {};
+                   $.ajax({
+                       url: updateParticipateUrl,
+                       method: updateParticipateMethod,
+                       data: data,
+                       success: function (data) {
+                         var hiddenParticipateEventRemoveForm = $('.participation-item-remove-form');
+                         if (data.eventsring.length>0) {
+                             event_rows.html("");
+                             i=data.eventsring.length;
+                             $.each(data.eventsring, function (index, value) {
+                                 var newParticpationEventForm = hiddenParticipateEventRemoveForm.clone();
+                                 newParticpationEventForm.css('display','block');
+                                 newParticpationEventForm.find(".participation-event-id").val(value.ide);
+                                home_participate_body.prepend("<tr><th scope=\"row\">" + i  + "</th><th>" + value.title + "</td><th>" + newParticpationEventForm.html() +  "</th></tr>");
+                                i--;
+                             });
+                         }
+                         else {
+                             window.location.href = currentUrl;
+                         }
+                       },
+                       error: function (errorData) {
+                           console.log(errorData);
+                       }
+                   })
+               }
+
+            })
+            </script>
+  <script>
+    $(document).ready(function () {
+    $('#MenuIcon').click(function () {
+        console.log("lojkjkjk");
+        $('#MainRohan').css("left", "0px");
+        function showMenu() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,100% 100%,0% 100%)");
+            $("#MenuIcon").animate({right: '-100'},300);
+        }
+        setTimeout(showMenu, 100);
+    });
+    $('#closer').click(function () {
+        console.log("Rohan Maki");
+        $('#MainRohan').css("clip-path",'polygon(0 0,0% 0,100% 100%,0% 100%)');
+        function hideMenu() {
+            $('#MainRohan').css("left", "-200%");
+            $('#MenuIcon').animate({right: '50'},300);
+        }
+        setTimeout(hideMenu,300);
+
+        function originalLayout() {
+            $('#MainRohan').css("clip-path","polygon(0 0,100% 0,0% 100%,0% 100%)");
+        }
+        setTimeout(originalLayout, 600);
+    });
+});
+
+    </script>
   </body>
 </html>

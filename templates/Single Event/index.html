@@ -1,10 +1,5 @@
 {% load static %}
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>{{ heading }}|| Excelsior 18</title>
@@ -21,7 +16,7 @@
         {% elif heading == 'General' %}
         <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
         {% endif %}
-        <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
+        <link rel="shortcut icon" href="{% static 'base/exc.ico' %}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
@@ -35,9 +30,13 @@
 					<div id="intro">
 						<h1>{% if heading == 'Bioles' %}BioTechnology{% elif heading == 'Takneek' %}Computer Science{% elif heading == 'Throttle' %}Mechanical{% elif heading == 'Acclivity'%}Electronics{% else %}{{ heading }}{% endif %}<br />
 						EVENTS</h1>
-						<p>Register Here, Dont have any Account <a href="{% url 'Accounts:register' %}">SignUp Here</a>.</p>
+                        {% if not request.user.is_authenticated %}
+						<p>We think You are not Logged in! Please <a href="{% url 'Accounts:login' %}">Login Here</a>. in order to register in events</p>
+                            {% else %}
+                            <p>Here are events.. You can Register now and manage your Registratons from your <a href="{% url 'Participation:profile' %}">Profile.</a></p>
+                    {% endif %}
 						<ul class="actions">
-							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+							<li><a href="/events/allevents/{{ categ_slug }}" class="button icon solo fa-arrow-left scrolly">Go Back</a></li>
 						</ul>
 					</div>
 
@@ -56,10 +55,14 @@
                         {% endif %}
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-youtube-play"><span class="label">YouTube</span></a></li>
+							<li><a href="/" class="icon fa-home"><span class="label">HOME</span></a></li>
+							<li><a href="{% url 'Events:events' %}" class="icon fa-calendar"><span class="label">EVENTS</span></a></li>
+							<li><a href="{% url 'Participation:profile' %}" class="icon fa-user"><span class="label">PROFILE</span></a></li>
+                            {% if request.user.is_authenticated %}
+							<li><a href="{% url 'Accounts:logout' %}" class="icon fa-sign-out"><span class="label">SIGNOUT</span></a></li>
+                            {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="icon fa-sign-in"><span class="label">SIGNIN</span></a></li>
+                            {% endif %}
 						</ul>
 					</nav>
 
@@ -97,12 +100,16 @@
                                     {% if request.user.is_authenticated %}
 {#										<li><a href="#" class="button">Regsiter Now</a></li>#}
                                         {% if technical and heading == 'Technical' %}
-                                            <li><a href="/events/allevents/{{ urling }}/{{ obj.slug }}" class="button">Go to {{ obj.title }}</a></li>
+                                            <li><a href="/events/allevents/{{ urling }}/{{ obj.slug }}" class="button special">Go to {{ obj.title }}</a></li>
                                             {% else %}
                                         <li>{% include 'Events/Snippets/form.html' with event=obj participation=participate %}</li>
                                         {% endif %}
                                     {% endif %}
-                                        <li><a href="#" class="button rules">Read More</a> </li>
+                                    {% if not sub_event %}
+                                        <li><a href="{% if technical %}/events/allevents/{{ urling }}/{{ obj.slug }}/excelsior/rules{% else %}/events/allevents/{{ urling }}/excelsior/rules{% endif %}" class="button rules">Read More</a> </li>
+                                    {% else %}
+                                                                            <li><a href="/events/allevents/{{ categ_slug }}/{{ urling }}/excelsior/rules" class="button rules">Read More</a> </li>
+                                    {% endif %}
                                     </ul>
 								</article>
                                 {% endfor %}
@@ -233,8 +240,16 @@
 					<!--</footer>-->
 
 				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com">ThemeWagon</a></li></ul>
+					<div id="copyright" style="background-color: #141617; color: whitesmoke; padding: 25px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    UIET Kurukshetra<br>Kurukshetra Univerity<br>Kurukshetra-136119
+                                </div>
+                                <div class="col-md-6 col-sm-6">Made By <a href="/developers">404 Shades</a> </div>
+                            </div>
+                        </div>
+{#						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com">ThemeWagon</a></li></ul>#}
 					</div>
 
 			</div>

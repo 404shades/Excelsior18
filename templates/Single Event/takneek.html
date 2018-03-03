@@ -10,6 +10,7 @@
 		<title>Elements Reference - Massively by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		{% if heading == 'Technical' %}
 		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
         {% elif heading == 'Cultural' %}
@@ -17,6 +18,7 @@
         {% elif heading == 'General' %}
         <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
         {% endif %}
+    <link rel="shortcut icon" href="{% static 'base/exc.ico' %}">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-loading">
@@ -37,10 +39,14 @@
 							<li class="active"><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}/excelsior/rules">Rules & Regulations</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-home"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-calendar-times-o"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-user"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-sign-out"><span class="label">GitHub</span></a></li>
+							<li><a href="/" class="icon fa-home"><span class="label">HOME</span></a></li>
+							<li><a href="{% url 'Events:events' %}" class="icon fa-calendar"><span class="label">EVENTS</span></a></li>
+							<li><a href="{% url 'Participation:profile' %}" class="icon fa-user"><span class="label">PROFILE</span></a></li>
+                            {% if request.user.is_authenticated %}
+							<li><a href="{% url 'Accounts:logout' %}" class="icon fa-sign-out"><span class="label">SIGNOUT</span></a></li>
+                            {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="icon fa-sign-in"><span class="label">SIGNIN</span></a></li>
+                            {% endif %}
 						</ul>
 					</nav>
 
@@ -193,8 +199,16 @@
 							</section>
 					</div>
 				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com/">ThemeWagon</a></li></ul>
+					<div id="copyright" style="background-color: #141617; color: whitesmoke; padding: 25px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    UIET Kurukshetra<br>Kurukshetra Univerity<br>Kurukshetra-136119
+                                </div>
+                                <div class="col-md-6 col-sm-6">Made By <a href="/developers">404 Shades</a> </div>
+                            </div>
+                        </div>
+{#						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com">ThemeWagon</a></li></ul>#}
 					</div>
 
 			</div>

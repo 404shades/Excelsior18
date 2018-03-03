@@ -67,10 +67,16 @@ class EventContactTeam(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super(EventContactTeam,self).get_context_data(**kwargs)
         categ = get_object_or_404(Category, slug=self.kwargs['slug'])
+        sub_categ = categ.subcategory_set.all()
+        technical =  False
+        if sub_categ.exists():
+            if sub_categ.count() > 1:
+                technical = True
         data['head'] = categ.title.split(' ', 1)[0].capitalize()
         data['contact_team_name'] = categ.team_head_name.split(",")
         data['contact_team_mobile'] = categ.team_head_mobile.split(",")
         data['urlfu'] = categ.slug
+        data['technical'] = technical
         return data
 
 

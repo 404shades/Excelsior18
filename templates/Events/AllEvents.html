@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>All Events|Excelsior 18</title>
+	<title>All Events||Excelsior 18</title>
 
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'Launcher/images/exc.ico' %}">
+    <link rel="icon" href="{% static 'base/exc.ico' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'ALl Events/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'ALl Events/font-awesome/css/font-awesome.min.css' %}">
 	<link rel="stylesheet" href="{% static 'ALl Events/css/owl.carousel.css' %}">
@@ -15,13 +15,16 @@
 	<link rel="stylesheet" href="{% static 'ALl Events/css/owl.theme.default.min.css' %}">
 	<link rel="stylesheet" href="{% static 'ALl Events/ionicons-2.0.1/css/ionicons.min.css' %}">
 	<link rel="stylesheet" href="{% static 'ALl Events/css/magnific-popup.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'ALl Events/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'navbar.css' %}">
 
     <style>
         #button{
             color: #000000;
-            font-family: Verdana;
+            font-family: Righteous, 'sans-serif';
             width: 200px;
             padding: 15px;
             border: 2px solid #000000;
@@ -89,10 +92,14 @@
         <img src="{% static 'Launcher/images/white.png' %}">
     </div>
     <ul class="rohan">
-        <li>All Events<div class="line"></div></li>
-        <li>PROFILE<div class="line"></div></li>
-        <li>LOGOUT<div class="line"></div></li>
-        <li>REGISTER<div class="line"></div></li>
+        <li><a href="/">HOME<div class="lunar"></div></a> </li>
+        <li><a href="/events/allevents">ALL EVENTS<div class="lunar"></div></a></li>
+        <li><a href="{% url 'Participation:profile' %}">PROFILE<div class="lunar"></div></a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'Accounts:logout' %}">LOGOUT<div class="lunar"></div></a></li>
+            {% else %}
+            <li><a href="{% url 'Accounts:login' %}">LOGIN<div class="lunar"></div> </a> </li>
+        {% endif %}
     </ul>
      <div id="closer">
         <img src="{% static 'Launcher/images/closebutton.png' %}">
@@ -109,11 +116,10 @@
 						<div class="slide2 bg">
 							<div class="overlay"></div>
 							<div class="head-text">
-								<div class="col-md-6 col-md-offset-3">
-									<h1 style="font-family: 'Raleway', sans-serif">FIND A NEW VISION AND DISCOVER MORE</h1>
+								<div class="col-sm-3 col-md-3 col-md-offset-3">
+									<h1 style="font-family: 'Righteous', sans-serif;border-bottom-style: ridge;">ROAD TO ECSTASY</h1>
 								</div>
 								<div class="col-md-6 col-md-offset-3">
-									<!--<a>MOBILE NETWORK</a>-->
 								</div>
 							</div>
 						</div>
@@ -121,11 +127,10 @@
 						<div class="slide3 bg">
 							<div class="overlay"></div>
 							<div class="head-text">
-								<div class="col-md-6 col-md-offset-3">
-									<h1 style="font-family: 'Raleway', sans-serif">FIND A NEW VISION AND DISCOVER MORE</h1>
+								<div class="col-sm-3 col-md-3 col-md-offset-3">
+									<h1 style="font-family: 'Righteous', sans-serif; border-bottom-style: ridge;">BEYOND HORIZONS</h1>
 								</div>
 								<div class="col-md-6 col-md-offset-3">
-									<!--<a>MOBILE NETWORK</a>-->
 								</div>
 							</div>
 						</div>
@@ -173,7 +178,6 @@
                                                     Go to General Events
                                                 </div>
                                                 </a>
-{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -212,7 +216,6 @@
                                                     Go To Cultural Events
                                                 </div>
                                                 </a>
-{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -250,12 +253,11 @@
 											</div>
 											<div>
 												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
-{#												<a href="/events/allevents/technical-events">
+											<a href="/events/allevents/technical-events">
                                                 <div id="button">
                                                 Go To Technical Events
                                             </div>
                                             </a>
-{#                                                <p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -290,7 +292,6 @@
 											<div>
 												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
 
-{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -300,278 +301,25 @@
 					</div>
 				</div>
 
-{#				<div class="row">#}
-{#					<div class="gallery-pad no-gutter">#}
-{#						<div class="col-sm-4">#}
-{#							<div class="row p0">#}
-{#								<div class="img-box grid-item">#}
-{#									<div class="home_text">#}
-{#										<h2>LITERARY EVENTS</h2>#}
-{#									</div>#}
-{#									<a href="#5" class="inline-popup">#}
-{#										<img src="{% static 'ALl Events/images/Home_5.jpg' %}" class="img-responsive" alt="Responsive image">#}
-{#									</a>#}
-{#								</div>#}
-{#							</div>#}
-{#						</div>#}
-{##}
-{#						<div id="5" class="white-popup mfp-hide">#}
-{#						  	<div class="container-fluid">#}
-{#								<div class="row">#}
-{#									<div class="pop-up-color">#}
-{#										<div class="col-md-7 p-l-0 p-r-0">#}
-{#											<img src="{% static 'ALl Events/images/5.jpg' %}" class="img-responsive" alt="Responsive image">#}
-{#										</div>#}
-{#										<div class="col-md-5">#}
-{#											<div>#}
-{#												<h4 class="popup-head">LITERARY</h4>#}
-{#											</div>#}
-{#											<div>#}
-{#												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
-{##}
-{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
-{#											</div>#}
-{#										</div>#}
-{#									</div>#}
-{#								</div>#}
-{#							</div>#}
-{#						</div>#}
-{##}
-{#						<div class="col-sm-8">#}
-{#							<div class="row p0">#}
-{#								<div class="img-box grid-item grid-item--width2">#}
-{#									<div class="home_text">#}
-{#										<h2>SHOWCASE EVENTS</h2>#}
-{#									</div>#}
-{#									<a href="#6" class="inline-popup">#}
-{#										<img src="{% static 'ALl Events/images/Home_6.jpg' %}" class="img-responsive" alt="Responsive image">#}
-{#									</a>#}
-{#								</div>#}
-{#							</div>#}
-{#						</div>#}
-{##}
-{#						<div id="6" class="white-popup mfp-hide">#}
-{#						  	<div class="container-fluid">#}
-{#								<div class="row">#}
-{#									<div class="pop-up-color">#}
-{#										<div class="col-md-7 p-l-0 p-r-0">#}
-{#											<img src="{% static 'ALl Events/images/6.jpg' %}" class="img-responsive" alt="Responsive image">#}
-{#										</div>#}
-{#										<div class="col-md-5">#}
-{#											<div>#}
-{#												<h4 class="popup-head">MUSIC & EVENTS</h4>#}
-{#											</div>#}
-{#											<div>#}
-{#												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
-{##}
-{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
-{#											</div>#}
-{#										</div>#}
-{#									</div>#}
-{#								</div>#}
-{#							</div>#}
-{#						</div>#}
-{#					</div>#}
-{#				</div>#}
 			</div>
 		</div>
 	</section>
 
-	<!-- Testimonial section -->
 
-	<!--<section class="testimonial">-->
-		<!--<div class="container">-->
-			<!--<div class="owl-carousel owl-theme" id="testimonial">-->
-			    <!--<div class="carousel-item">-->
-					<!--<div class="row">-->
-						<!--<div class="col-md-8 col-md-offset-2">-->
-					    	<!--<div class="text-center">-->
-					    		<!--<p>“ I've been using Medium Rare templates for a couple of years now - they're always highly polished and backed up by amazing support.”</p>-->
-					    		<!--<p>— Sam Prichard, Interface Designer</p>-->
-					    	<!--</div>-->
-					    <!--</div>-->
-					<!--</div>-->
-			    <!--</div>-->
-			    <!--<div class="carousel-item">-->
-					<!--<div class="row">-->
-						<!--<div class="col-md-8 col-md-offset-2">-->
-					    	<!--<div class="text-center">-->
-					    		<!--<p>“ I've been using Medium Rare templates for a couple of years now - they're always highly polished and backed up by amazing support.”</p>-->
-					    		<!--<p>— Sam Prichard, Interface Designer</p>-->
-					    	<!--</div>-->
-					    <!--</div>-->
-					<!--</div>-->
-			    <!--</div>-->
-			    <!--<div class="carousel-item">-->
-					<!--<div class="row">-->
-						<!--<div class="col-md-8 col-md-offset-2">-->
-					    	<!--<div class="text-center">-->
-					    		<!--<p>“ I've been using Medium Rare templates for a couple of years now - they're always highly polished and backed up by amazing support.”</p>-->
-					    		<!--<p>— Sam Prichard, Interface Designer</p>-->
-					    	<!--</div>-->
-					    <!--</div>-->
-					<!--</div>-->
-			    <!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</section>-->
-
-	<!--<section class="">-->
-		<!--<div class="container">-->
-			<!--<div class="col-md-12 contact-field">-->
-				<!--<div class="col-md-6">-->
-					<!--<form>-->
-						<!--<div class="row">-->
-							<!--<div class="col-md-6">-->
-								<!--<div class="form-group">-->
-									<!--<p>NAME <span class="star">*</span></p>-->
-									<!--<input type="text" class="form-control" name="name" id="name"/>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<div class="col-md-6">-->
-								<!--<div class="form-group">-->
-									<!--<p>EMAIL <span class="star">*</span></p>-->
-									<!--<input type="email" class="form-control" name="email" id="email"/>-->
-								<!--</div>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<div class="row">-->
-							<!--<div class="col-md-12">-->
-								<!--<div class="from-group">-->
-									<!--<p>MESSAGE</p>-->
-									<!--<textarea class="form-control message" rows="2" name="message" id="message"></textarea>-->
-								<!--</div>-->
-								<!--<p>-->
-								  <!--<a href="#" type="button" class="btn btn-tobais btn-send">SEND MESSAGE</a>-->
-								  <!--<a href="#" type="button" class="btn btn-tobais btn-reset">RESET</a>-->
-								<!--</p>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</form>-->
-				<!--</div>-->
-				<!--<div class="col-md-6">-->
-					<!--&lt;!&ndash; contact info part &ndash;&gt;-->
-					<!--<div class="contact-info">-->
-						<!--<div class="contact-info-content">-->
-							<!--<h4 class="">ADDRESS</h4>-->
-							<!--<div class="img-wrapper">-->
-								<!--<img class="img-responsive" src="assets/images/icons/address.png" alt="" />-->
-							<!--</div>-->
-							<!--<p>1234 Somewhere Road #5432 Nashville, TN 00000 <br> United States of America</p>-->
-						<!--</div>-->
-						<!--<hr>-->
-						<!--<div class="contact-info-content">-->
-							<!--<h4 class="">PHONE</h4>-->
-							<!--<div class="img-wrapper">-->
-								<!--<img class="img-responsive" src="assets/images/icons/call.png" alt="" />-->
-							<!--</div>-->
-							<!--<p>+044 425 541 42 / +044 455 541 44-->
-								<!--<br>+044 455 541 46 (FAX)-->
-							<!--</p>-->
-						<!--</div>-->
-						<!--<hr>-->
-						<!--<div class="contact-info-content">-->
-							<!--<h4 class="">EMAIL</h4>-->
-							<!--<div class="img-wrapper">-->
-								<!--<img class="img-responsive" src="assets/images/icons/email.png" alt="" />-->
-							<!--</div>-->
-							<!--<p>invantion@mail.com <br>invationofficial@mail.com</p>-->
-						<!--</div>-->
-					<!--</div> &lt;!&ndash; /.contact-info &ndash;&gt;-->
-				<!--</div>-->
-			<!--</div>			-->
-		<!--</div>-->
-	<!--</section>-->
-	<!--<hr>-->
-
-	<!--<section class="social-section">-->
-		<!--<div class="container-fluid">-->
-			<!--<div class="row">-->
-				<!--<div class="social-contact">-->
-					<!--<div class="col-md-6">-->
-						<!--<div class="row">-->
-							<!--<div class="col-md-4">-->
-								<!--<p class="logo">INVENTI<span><img src="assets/images/logo.png"></span>N</p>-->
-							<!--</div>-->
-							<!--<div class="col-md-8">-->
-								<!--<div class="row">-->
-									<!--<div class="col-md-4">-->
-										<!--<p>SERVICES</p>-->
-										<!--<p><a href="#">Research</a></p>-->
-										<!--<p><a href="#">Mobil</a></p>-->
-										<!--<p><a href="#">Travel</a></p>-->
-									<!--</div>-->
-									<!--<div class="col-md-4">-->
-										<!--<p>USEFULL LINKS</p>-->
-										<!--<p><a href="#">Players</a></p>-->
-										<!--<p><a href="#">Gift</a></p>-->
-										<!--<p><a href="#">Help</a></p>-->
-									<!--</div>-->
-									<!--<div class="col-md-4">-->
-										<!--<p>SERVICES</p>-->
-										<!--<p><a href="#">For Artists</a></p>-->
-										<!--<p><a href="#">Developers</a></p>-->
-										<!--<p><a href="#">Brands</a></p>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<div class="col-md-6">-->
-						<!--<div class="row">-->
-							<!--<div class="col-md-6">-->
-							<!--<h5>KEEP ME UP TO DATE</h5>-->
-								<!--<div class="input-group">-->
-							      	<!--<input type="text" class="form-control notify-me" placeholder="">-->
-							      	<!--<span class="input-group-btn">-->
-							        	<!--<a class="btn btn-default notify-me" type="button">NOTIFY ME</a>-->
-							     	<!--</span>-->
-							    <!--</div>-->
-							<!--</div>-->
-							<!--<div class="col-md-6">-->
-								<!--<div class="row">-->
-									<!--<ul class="social-icon">-->
-										<!--<li>-->
-											<!--<a href="#" class="ion-social-facebook-outline"></a>-->
-										<!--</li>-->
-										<!--<li>-->
-											<!--<a href="#" class="ion-social-twitter-outline"></a>-->
-										<!--</li>-->
-										<!--<li>-->
-											<!--<a href="#" class="ion-social-dribbble-outline"></a>-->
-										<!--</li>-->
-										<!--<li>-->
-											<!--<a href="#" class="ion-social-pinterest-outline"></a>-->
-										<!--</li>-->
-									<!--</ul>-->
-								<!--</div>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>			-->
-		<!--</div>-->
-	<!--</section>-->
-	<!--<hr>-->
 
 	<section class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="footer-bottom">
-						<li><a href="#">Legal</a></li>
-						<li><a href="#">Cookies</a></li>
-						<li>
-							<a href="#">
-								<img src="{% static 'ALl Events/images/add.png' %}">AdCholces
-							</a>
-						</li>
+                        <li><a href="#">UIET Kurukshetra<br>Kurukshetra University<br>Kurukshetra-136119</a></li>
+
 					</ul>
 				</div>
 				<div class="col-md-6">
-					<p class="copyright-text">Invantion &copy; 2016 
-						<a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-					</p>
+					<h4 class="copyright-text">Excelsior 2018<br>
+						<a href="/developers">By 404 Shades</a>
+					</h4>
 				</div>
 			</div>
 		</div>
