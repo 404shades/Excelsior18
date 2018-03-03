@@ -17,6 +17,67 @@
 	<link rel="stylesheet" href="{% static 'ALl Events/css/magnific-popup.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'ALl Events/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+    <style>
+        #button{
+            color: #000000;
+            font-family: Verdana;
+            width: 200px;
+            padding: 15px;
+            border: 2px solid #000000;
+            text-align: center;
+            position: relative;
+            left: 27%;
+            -webkit-transform: translate(-50% -50%);
+            -moz-transform: translate(-50% -50%);
+            -ms-transform: translate(-50% -50%);
+            -o-transform: translate(-50% -50%);
+            transform: translate(-50% -50%);
+            overflow: hidden;
+            -webkit-transition:  .5s;
+            -moz-transition:  .5s;
+            -ms-transition:  .5s;
+            -o-transition:  .5s;
+            transition:  .5s;
+        }
+        #button:after{
+            content: '';
+            width: 0px;
+            height: 120%;
+            position: relative;
+            left: -10%;
+            bottom: 0;
+            background-color: #000000;
+            -webkit-transform: skewX(15deg);
+            -moz-transform: skewX(15deg);
+            -ms-transform: skewX(15deg);
+            -o-transform: skewX(15deg);
+            transform: skewX(15deg);
+            z-index: -1;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -ms-transition: .5s;
+            -o-transition: .5s;
+            transition: .5s;
+        }
+        #button:hover{
+            cursor: pointer;
+            color: white;
+            background-color:#5bcaff ;
+            border: 2px solid white;
+        }
+        #button:hover:after{
+            left: -10%;
+            width: 120%;
+
+        }
+         @media only screen and (max-width: 700px) {
+            #button{
+                margin-bottom: 20px;
+            }
+}
+    </style>
+
 </head>
 <body>
 
@@ -107,8 +168,12 @@
 											</div>
 											<div>
 												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
-
-												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
+                                                <a href="/events/allevents/general-events">
+                                                <div id="button">
+                                                    Go to General Events
+                                                </div>
+                                                </a>
+{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -142,8 +207,12 @@
 											</div>
 											<div>
 												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
-
-												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
+                                                <a href="/events/allevents/cultural-events">
+                                                <div id="button">
+                                                    Go To Cultural Events
+                                                </div>
+                                                </a>
+{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>
@@ -159,16 +228,55 @@
 							<div class="row p0">
 								<div class="img-box grid-item grid-item--width2">
 									<div class="home_text">
-										<h2>SHOWCASE EVENTS</h2>
+										<h2>TECHNICAL EVENTS</h2>
 									</div>
 									<a href="#3" class="inline-popup">
-										<img src="{% static 'ALl Events/images/Home_6.jpg' %}" class="img-responsive" alt="Responsive image">
+										<img src="{% static 'ALl Events/images/Home_3.jpg' %}" class="img-responsive" alt="Responsive image">
 									</a>
 								</div>
 							</div>
 						</div>
 
 						<div id="3" class="white-popup mfp-hide">
+						  	<div class="container-fluid">
+								<div class="row">
+									<div class="pop-up-color">
+										<div class="col-md-7 p-l-0 p-r-0">
+											<img src="{% static 'ALl Events/images/3.jpg' %}" class="img-responsive" alt="Responsive image">
+										</div>
+										<div class="col-md-5">
+											<div>
+												<h4 class="popup-head">TECHNICAL EVENTS</h4>
+											</div>
+											<div>
+												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
+{#												<a href="/events/allevents/technical-events">
+                                                <div id="button">
+                                                Go To Technical Events
+                                            </div>
+                                            </a>
+{#                                                <p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="row p0">
+								<div class="img-box grid-item">
+									<div class="home_text">
+										<h2>SHOWCASE EVENTS</h2>
+									</div>
+									<a href="#4" class="inline-popup">
+										<img src="{% static 'ALl Events/images/Home_6.jpg' %}" class="img-responsive" alt="Responsive image">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div id="4" class="white-popup mfp-hide">
 						  	<div class="container-fluid">
 								<div class="row">
 									<div class="pop-up-color">
@@ -182,42 +290,7 @@
 											<div>
 												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
 
-												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-4">
-							<div class="row p0">
-								<div class="img-box grid-item">
-									<div class="home_text">
-										<h2>TECHNICAL EVENTS</h2>
-									</div>
-									<a href="#4" class="inline-popup">
-										<img src="{% static 'ALl Events/images/Home_3.jpg' %}" class="img-responsive" alt="Responsive image">
-									</a>
-								</div>
-							</div>
-						</div>
-
-						<div id="4" class="white-popup mfp-hide">
-						  	<div class="container-fluid">
-								<div class="row">
-									<div class="pop-up-color">
-										<div class="col-md-7 p-l-0 p-r-0">
-											<img src="{% static 'ALl Events/images/Home_3.jpg' %}" class="img-responsive" alt="Responsive image">
-										</div>
-										<div class="col-md-5">
-											<div>
-												<h4 class="popup-head">TECHNICAL EVENTS</h4>
-											</div>
-											<div>
-												<p class="popup-parapraph"><a>Mikem atas</a> We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
-
-												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>
+{#												<p class="popup-parapraph">Mikem atas We hiked up to the mouth of this glacier and went swimming in the freezing lake below.mikematasWe hiked up to the mouth of this glacier and went swimming in the freezing lake below.</p>#}
 											</div>
 										</div>
 									</div>

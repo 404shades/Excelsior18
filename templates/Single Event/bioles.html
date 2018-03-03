@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{% if heading == 'Technical' %}
+		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
+        {% elif heading == 'Cultural' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/cultural.css' %}"/>
+        {% elif heading == 'General' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
+        {% endif %}
+		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Bioles</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}">Bioles Events</a></li>
+							<li><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}/contact">Contact US</a></li>
+							<li class="active"><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}/excelsior/rules">Rules & Regulations</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon fa-home"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-calendar-times-o"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-user"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-sign-out"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>RULES of<br />
+									Bioles Events</h1>
+								</header>
+
+								<div id="Biofest Open Quiz">
+								<h2>Biofest Open Quiz</h2>
+									<div class="row">
+										<div class="12u 12u$(small)">
+
+											<h3>Summary</h3>
+											<dl>
+												<dd>
+													<p>Biofest is a platform to show your knowledge and prove your skills . Start with written screening test followed by oral and visual rounds for the shortlisted candidates. </p>
+												</dd>
+											</dl>
+											<h3>RULES</h3>
+											<ul>
+												<li>It is a group task.</li>
+												<li>Every team has a leader.</li>
+												<li>Every second counts.</li>
+											</ul>
+										</div>
+									</div>
+								<hr/>
+								</div>
+
+								<div id="Forensic Science Investigations">
+								<h2>Forensic Science Investigations</h2>
+								<div class="row">
+									<div class="12u 12u$(small)">
+
+										<h3>Summary</h3>
+										<dl>
+											<dd>Forensic science is the application of science to criminal and civil laws, mainly on criminal side during criminal investigation, as governed by the legal standards of admissible evidence and criminal procedure. Forensic scientist collect , preserve and analyze scientific evidence during the course of investigation.</p>
+											</dd>
+										</dl>
+										<h3>Rules:</h3>
+										<ul>
+											<li>This is a group event.</li>
+											<li>Participants team has to collect clues and evidence as much as possible.</li>
+											<li>Crime scene will be created with blood samples and other biological contents.</li>
+										</ul>
+									</div>
+								</div>
+								<hr/>
+								</div>
+
+
+								<div id="Humour Youth Science">
+									<h2>Humour Youth Science</h2>
+									<div class="row">
+										<div class="12u 12u$(small)">
+
+											<h3>Summary</h3>
+											<dl>
+												<dd>
+													<p>Biotechnology processes and terms can be the plot of a comic story which can create a scientific humor and a well understanding of matter.</p>
+												</dd>
+											</dl>
+											<h3>RULES</h3>
+											<ul>
+												<li>This is solo event.</li>
+												<li>Participants have to create a comic story in accordance to explain a biotech process.</li>
+											</ul>
+										</div>
+									</div>
+									<hr/>
+								</div>
+
+
+								<div id="Paper and poster presentation">
+								<h2>Paper and poster presentation</h2>
+								<div class="row">
+									<div class="12u 12u$(small)">
+
+										<h3>Summary</h3>
+										<dl>
+											<dd>
+												<p>A poster presentation is the presentation of research information by an individual or representative of research terms at a congress or conference with a academic or professional focus. A research fellow must know about the paper publishing and appropriate choice of subject matter in his/her research paper.</p>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<hr/>
+								</div>
+
+
+
+							</section>
+					</div>
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com/">ThemeWagon</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'Single Event/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'Single Event/assets/js/animatedModal.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/util.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function($) {
+
+      if (window.history && window.history.pushState) {
+
+        $(window).on('popstate', function() {
+          var hashLocation = location.hash;
+          var hashSplit = hashLocation.split("#!/");
+          var hashName = hashSplit[1];
+
+          if (hashName !== '') {
+            var hash = window.location.hash;
+            if (hash === '') {
+              {#alert('Back button was pressed.');#}
+                window.location='/events/allevents/{{ urlcateg }}/{{ urlsub }}';
+                return false;
+            }
+          }
+        });
+
+        window.history.pushState('forward', null, './#forward');
+      }
+
+    });
+    </script>
+
+
+	</body>
+</html>

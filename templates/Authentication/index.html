@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block styling %}
-    <link rel="stylesheet" href="{% static 'Launcher/css/partstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'base/partstyle.css' %}">
 {% endblock %}
 {% block content %}
     <div id="particles-js">
@@ -19,7 +19,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS.load('particles-js', '{% static 'Launcher/js/particles.json' %}', function () {
+        particlesJS.load('particles-js', '{% static 'base/particles.json' %}', function () {
             console.log('Particles.json Loaded')
         })
     </script>

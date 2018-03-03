@@ -10,6 +10,10 @@
 		<title>{{ heading }}|| Excelsior 18</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% if sub_event %}
+    <link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
+    {% endif %}
         {% if heading == 'Technical' %}
 		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
         {% elif heading == 'Cultural' %}
@@ -20,25 +24,16 @@
         <link rel="shortcut icon" href="{% static 'Launcher/images/exc.ico' %}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
 		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 	</head>
 	<body class="is-loading">
-        <div id="modal-02">
-            <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID-->
-            <div  id="btn-close-modal" class="close-modal-02">
-                CLOSE MODAL
-            </div>
 
-            <div class="modal-content">
-                <!--Your modal content goes here-->
-                dfnsdfnsmdfmbsdfmbfdm
-            </div>
-        </div>
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>{{ heading }}<br />
+						<h1>{% if heading == 'Bioles' %}BioTechnology{% elif heading == 'Takneek' %}Computer Science{% elif heading == 'Throttle' %}Mechanical{% elif heading == 'Acclivity'%}Electronics{% else %}{{ heading }}{% endif %}<br />
 						EVENTS</h1>
 						<p>Register Here, Dont have any Account <a href="{% url 'Accounts:register' %}">SignUp Here</a>.</p>
 						<ul class="actions">
@@ -55,7 +50,10 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="#">{{ heading }} Events</a></li>
-							<li><a href="/events/allevents/{{ urling }}/contact">Contact Team</a></li>
+							<li><a href="{% if sub_event %}/events/allevents/{{ categ_slug }}/{{ urling }}/contact{% else %}/events/allevents/{{ urling }}/contact{% endif %}">Contact Team</a></li>
+                           {% if not technical %}
+                            <li><a href="{% if sub_event %}/events/allevents/{{ categ_slug }}/{{ urling }}/excelsior/rules{% else %}/events/allevents/{{ urling }}/excelsior/rules{% endif %}">Rules & Regulations</a> </li>
+                        {% endif %}
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -96,13 +94,15 @@
 									<a href="#" class="image fit">{% if obj.image %}<img src="{{ obj.image.url }}" alt="" />{% endif %}</a>
 									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
 									<ul class="actions">
+                                    {% if request.user.is_authenticated %}
 {#										<li><a href="#" class="button">Regsiter Now</a></li>#}
                                         {% if technical and heading == 'Technical' %}
-                                            <li><a href="#" class="button">Go to {{ obj.title }}</a></li>
+                                            <li><a href="/events/allevents/{{ urling }}/{{ obj.slug }}" class="button">Go to {{ obj.title }}</a></li>
                                             {% else %}
                                         <li>{% include 'Events/Snippets/form.html' with event=obj participation=participate %}</li>
                                         {% endif %}
-                                        <li><a href="#modal-02" class="button rules">Read More</a> </li>
+                                    {% endif %}
+                                        <li><a href="#" class="button rules">Read More</a> </li>
                                     </ul>
 								</article>
                                 {% endfor %}
@@ -247,14 +247,111 @@
 			<script src="{% static 'Single Event/assets/js/skel.min.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/util.js' %}"></script>
 			<script src="{% static 'Single Event/assets/js/main.js' %}"></script>
-    <script>
-        $(".rules").animatedModal({
-            modalTarget: 'modal-02',
-            animatedIn:  'zoomIn',
-            animatedOut: 'bounceOut',
-            color: 'rgba(255,255,255,0.8)'
-        })
-    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+            <script>
+            $(document).ready(function () {
+                console.log("name", "Entered");
+                var event_form = $(".event-add-ajax");
+                event_form.submit(function (event) {
+                    console.log("Not An Issue");
+                    event.preventDefault();
+                    console.log("Form Is Not Sending");
+                    var thisForm = $(this);
+                    var action = thisForm.attr("data-endpoint");
+                    var method = thisForm.attr("method");
+                    var formData = thisForm.serialize();
+                    $.ajax({
+                        url: action,
+                        method: method,
+                        data:formData,
+                        success: function (data) {
+                            console.log(data.added);
+                            var submitSpan = thisForm.find(".submit-span");
+                            if(data.added){
+                                submitSpan.html("<button type=\"submit\" class=\"button special\">Registered-Remove?</button>")
+                               $.confirm({
+                                   theme: 'modern',
+                                   icon: 'fa fa-smile-o',
+                                   title: 'Confirm',
+                                   content: 'Thank You!! Your Registration is Sucessful',
+                                   type: 'blue',
+                                   animation: 'scale',
+                                   buttons: {
+                                       ok: {
+                                           text: "Okay!",
+                                           btnClass: 'special',
+                                           keys: ['enter']
+                                        }
+                                     }
+                                })
+                            }
+                            else {
+                                submitSpan.html("<button type=\"submit\" class=\"button special\">Register Now</button>")
+                                 $.confirm({
+                                     theme: 'modern',
+                                     icon: 'fa fa-frown-o',
+                                     title: 'Removed',
+                                     type: 'red',
+                                     animation: 'scale',
+                                     content: 'Your Registration has been removed',
+                                     buttons: {
+                                        ok: {
+                                            text: "Okay!",
+                                            btnClass: 'button',
+                                            keys: ['enter']
+                                        }
+                                     }
+                                })
+                            }
+                            if (window.location.href.indexOf("participation") !== -1){
+                                refreshParticipate()
+                            }
+                        },
+                        error: function (errorData) {
+                            console.log("error", errorData);
+                        }
+                    })
+                });
+
+               function refreshParticipate() {
+                   console.log("In the Participation Page");
+                   var home_participate_table = $(".participation-table");
+                   var home_participate_body = home_participate_table.find(".participation-body");
+                   var event_rows = home_participate_body.find('.participation-event');
+                   var currentUrl = window.location.href;
+                   var updateParticipateUrl = '/api/participate';
+                   var updateParticipateMethod = "GET";
+                   var data = {};
+                   $.ajax({
+                       url: updateParticipateUrl,
+                       method: updateParticipateMethod,
+                       data: data,
+                       success: function (data) {
+                         var hiddenParticipateEventRemoveForm = $('.participation-item-remove-form');
+                         if (data.eventsring.length>0) {
+                             event_rows.html("");
+                             i=data.eventsring.length;
+                             $.each(data.eventsring, function (index, value) {
+                                 var newParticpationEventForm = hiddenParticipateEventRemoveForm.clone();
+                                 newParticpationEventForm.css('display','block');
+                                 newParticpationEventForm.find(".participation-event-id").val(value.ide);
+                                home_participate_body.prepend("<tr><th scope=\"row\">" + i  + "</th><td>" + value.title + newParticpationEventForm.html() +  "</td></tr>");
+                                i--;
+                             });
+                         }
+                         else {
+                             window.location.href = currentUrl;
+                         }
+                       },
+                       error: function (errorData) {
+                           console.log(errorData);
+                       }
+                   })
+               }
+
+            })
+            </script>
 
 	</body>
 </html>

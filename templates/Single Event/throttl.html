@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{% if heading == 'Technical' %}
+		<link rel="stylesheet" href="{% static 'Single Event/assets/css/technical.css' %}" />
+        {% elif heading == 'Cultural' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/cultural.css' %}"/>
+        {% elif heading == 'General' %}
+        <link rel="stylesheet" href="{% static 'Single Event/assets/css/general.css' %}">
+        {% endif %}
+		<noscript><link rel="stylesheet" href="{% static 'Single Event/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Throttle</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}">Throttle Events</a></li>
+							<li><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}/contact">Contact US</a></li>
+							<li class="active"><a href="/events/allevents/{{ urlcateg }}/{{ urlsub }}/excelsior/rules">Rules & Regulations</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon fa-home"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-calendar-times-o"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-user"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-sign-out"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>RULES of<br />
+									Throttle Events</h1>
+								</header>
+
+								<div id="Dual Mobility">
+								<h2>Dual Mobility</h2>
+									<div class="row">
+										<div class="12u 12u$(small)">
+
+											<h3>Summary</h3>
+											<dl>
+												<dd>
+													<p>This event needs a boat which is comfortable on land as well as in water for straight line motions and taking turns. An effective way for war in both land and water.</p>
+												</dd>
+											</dl>
+											<h3>Problem statement:</h3>
+											<ul>
+												<li>To build an amphibious vehicle that is capable of running on land as well as in water.</li>
+												<li>The vehicle must be able to move on hard surface as well as in water and also be able to steer in water, it’s a mix of racing and overcoming hindrances in minimum time.</li>
+											</ul>
+											<h3>Team size: 2-4 members</h3>
+											<h3>Rules</h3>
+											<ul>
+												<li>Machine should be fitted in a box having dimensions 300mm x 300mm x 450mm (L*B*H) at any moment of time during the race (5% tolerance allowed). The external device which is used to control the device is not included in the size constraint.</li>
+												<li>No constraint on weight of robot.</li>
+												<li>The electric voltage anywhere in the machine should not exceed 24 V at any point of time. Power source would be available but you can use battery also.</li>
+												<li>Evaluation will be based on economic feasibility, practical feasibility and innovation.</li>
+											</ul>
+										</div>
+									</div>
+								<hr/>
+								</div>
+
+								<div id="Technical Quiz">
+								<h2>Technical Quiz</h2>
+								<div class="row">
+									<div class="12u 12u$(small)">
+
+										<h3>Summary</h3>
+										<dl>
+											<dd>
+												<p>A platform to show your technical skills with a basic knowledge of core mechanical subjects.</p>
+											</dd>
+										</dl>
+										<h3>The quiz will be conducted in two stages:</h3>
+										<ul>
+											<li>Stage 1: objective type written test</li>
+											<li>Stage 2: Oral  Quiz  </li>
+										</ul>
+									</div>
+								</div>
+								<hr/>
+								</div>
+
+
+								<div id="Cad contest">
+									<h2>Cad contest</h2>
+									<div class="row">
+										<div class="12u 12u$(small)">
+
+											<h3>Summary</h3>
+											<dl>
+												<dd>
+													<p>Cad contest offers a challenging competition platform to ascertain the best student designer. The competition is a resourceful juncture for the technical players to display their abilities in product designing by applying the principles of physics and material designing and acquire the know-how in the arena which is evaluated by the industry specialists.
+														It will be conducted in single round. 1 hr will be allotted to each participant to design part(s)/ assembly.
+														Evaluation will be based on drawing skills, neatness, completeness and time span.</p>
+												</dd>
+											</dl>
+											<h3>RULES</h3>
+											<ul>
+												<!--<li>This is a group event.</li>-->
+												<!--<li>Participants team has to collect clues and evidence as much as possible.</li>-->
+												<!--<li>Crime scene will be created with blood samples and other biological contents.</li>-->
+											</ul>
+										</div>
+									</div>
+									<hr/>
+								</div>
+
+
+								<div id="Mechizmo">
+								<h2>Mechizmo</h2>
+								<div class="row">
+									<div class="12u 12u$(small)">
+
+										<h3>Summary</h3>
+										<dl>
+											<dd>
+												<p>Get ready to take control of your robot while competing with other participants. In this event we provide you a golden opportunity to prove your skill in creating a robot and competing with other participants. This presents a chance for the challenger to show their robotic acumen, intellect and fighter spirit.</p>
+											</dd>
+										</dl>
+										<h3>Problem statement:</h3>
+										<ul>
+											<li>To build a robot capable of carrying and placing the cubes (not weighing more than 250 gms) in their places.</li>
+										</ul>
+										<h3>Team size: 2-4 members</h3>
+										<h3>Rules</h3>
+										<ul>
+											<li>Robot should be fitted in a box having dimensions 300mm x 300mm x 450mm (L*B*H) at any moment of time during the race (5% tolerance allowed). The external device which is used to control the device is not included in the size constraint.</li>
+											<li>No constraint on weight of robot.</li>
+											<li>The electric voltage anywhere in the machine should not exceed 24 V at any point of time. Power source would be available but you can use battery also.</li>
+											<li>The arm should use only the self-made mechanical mechanisms (Gears, Belt pulleys, Pneumatic, Hydraulic, Cam, Chain-sprocket, etc.).</li>
+										</ul>
+										<p>Evaluation will be based on economic feasibility, practical feasibility and innovation.</p>
+									</div>
+								</div>
+								<hr/>
+								</div>
+
+
+
+							</section>
+					</div>
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Distributor: <a href="https://themewagon.com/">ThemeWagon</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'Single Event/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'Single Event/assets/js/animatedModal.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/util.js' %}"></script>
+			<script src="{% static 'Single Event/assets/js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function($) {
+
+      if (window.history && window.history.pushState) {
+
+        $(window).on('popstate', function() {
+          var hashLocation = location.hash;
+          var hashSplit = hashLocation.split("#!/");
+          var hashName = hashSplit[1];
+
+          if (hashName !== '') {
+            var hash = window.location.hash;
+            if (hash === '') {
+              {#alert('Back button was pressed.');#}
+                window.location='/events/allevents/{{ urlcateg }}/{{ urlsub }}';
+                return false;
+            }
+          }
+        });
+
+        window.history.pushState('forward', null, './#forward');
+      }
+
+    });
+    </script>
+
+
+	</body>
+</html>

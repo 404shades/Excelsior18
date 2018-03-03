@@ -167,14 +167,14 @@ h2 {
 	top: 10%;
 }
 
-.line {
-	display: block;
-	margin: 0 auto;
-	width: 60px;
-	height: 1px;
-	background: #00d9ec;
-	margin-top: 10px;
-}
+/*.line {*/
+	/*display: block;*/
+	/*margin: 0 auto;*/
+	/*width: 60px;*/
+	/*height: 1px;*/
+	/*background: #00d9ec;*/
+	/*margin-top: 10px;*/
+/*}*/
 
 .contact {
 	display: block;
@@ -184,7 +184,6 @@ h2 {
 	text-align: center;
 	bottom: 5%;
 }
-
 .contact .icons {
 	margin: 0;
 	padding: 0;

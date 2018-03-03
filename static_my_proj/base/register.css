@@ -10,6 +10,7 @@ body{
     background: rgba(0,0,0,0.8);
     color:#fff;
     top: 50%;
+    min-height: 100%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -27,6 +28,6 @@ h1{
     font-size: 22px;
 }
 #particles-js{
-    background-image: url('/static/Launcher/images/image1.jpg');
+    background-image: url('/static/base/6.jpg');
     height: 100vh;
 }

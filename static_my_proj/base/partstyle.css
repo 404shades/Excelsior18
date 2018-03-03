@@ -27,6 +27,6 @@ h1{
     font-size: 22px;
 }
 #particles-js{
-    background-image: url('/static/Launcher/images/image1.jpg');
+    background-image: url('/static/base/register.jpg');
     height: 100vh;
 }

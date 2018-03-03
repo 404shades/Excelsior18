@@ -2,9 +2,9 @@
     <input type="hidden" name="event_id" value="{{ event.id }}"/>
  <span class="submit-span">
     {% if event in participation.eventspart.all %}
-    <button type="submit" class="button">Registered-Remove?</button>
+    <button type="submit" class="button special">Registered-Remove?</button>
     {% else %}
-    <button type="submit" class="button">Register Now</button>
+    <button type="submit" class="button special">Register Now</button>
     {% endif %}
         </span>
 </form>

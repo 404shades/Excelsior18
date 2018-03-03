@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.utils.http import is_safe_url
 from django.views.generic import FormView, CreateView
-import sendotp
+from .utils import sendotping
 from .forms import LoginForm, RegisterForm, VerificationForm
 from django.contrib.auth import authenticate, login, get_user_model, logout
+from django.contrib import messages
+from pprint import pprint
 # Create your views here.
 import json
 User = get_user_model()
@@ -65,16 +67,20 @@ class VerificationOTP(FormView):
     def form_valid(self, form):
         request = self.request
         user = User.objects.get(email=request.session.get('user_one'))
-        otpobj = sendotp.sendotp.sendotp('197589AXDtCunMpPbM5a7eba71','')
+        del request.session['user_one']
+        otpobj = sendotping('197589AXDtCunMpPbM5a7eba71','')
         mobile_no = user.get_mobile().strip("+")
         otp = form.cleaned_data.get("otpinput")
-        js = otpobj.verify(mobile_no, otp)
-        print(type(js))
-        if js==200:
+        ab = otpobj.verify(mobile_no, otp)
+        jsdata = json.loads(ab)
+        print(jsdata['message'])
+        if jsdata['type'] == 'success' or jsdata['message'] == 'otp_verified':
             user.active = True
+            user.save()
             print(user)
-            del request.session['user_one']
             return redirect('/accounts/login/')
         else:
             print('CHLL Be Chutie')
-            super(VerificationOTP,self).form_invalid(form)
+            raise ValueError('WRONG OTP ENTERED')
+
+

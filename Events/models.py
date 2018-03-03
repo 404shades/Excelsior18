@@ -47,9 +47,13 @@ class SubCategory(models.Model):
     title = models.CharField(max_length=100)
     department = models.CharField(max_length=100, default='Computer Science and Engineering')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    slug = models.SlugField(blank=True, null=True, max_length=250)
 
     def __str__(self):
         return self.title
+
+
+pre_save.connect(rl_pre_save_receiver, sender=SubCategory)
 
 
 class EventsManager(models.Manager):
@@ -63,8 +67,6 @@ class EventsManager(models.Manager):
 class Event(models.Model):
     title = models.CharField(max_length=100)
     area = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
-    summary = models.TextField(max_length=4000)
-    rules = models.TextField(max_length=4000)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
 
     def __str__(self):
