@@ -5,8 +5,8 @@ body{
 }
 
 .loginbox{
-    width: 70%;
-    height: 90%;
+    width: 820px;
+    height: 850px;
     background: rgba(0,0,0,0.8);
     color:#fff;
     top: 50%;
@@ -24,9 +24,9 @@ h1{
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 28px;
 }
 #particles-js{
-    background-image: url('/static/Launcher/images/image1.jpg');
+    background-image: url('/static/base/register.jpg');
     height: 100vh;
 }

@@ -7,6 +7,10 @@
     body{
         background-image: url('/static/base/register.jpg');
         margin-top: 25px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
         font-family: 'Josefin Sans', serif;
         font-size: 24px;
         color: #FFFFFF;
@@ -15,7 +19,6 @@
         background-color: rgba(0,0,0,0.7);
         min-height: 700px;
         padding: 15px;
-        position: absolute;
 
     }
     .registration{
@@ -26,24 +29,25 @@
         border: none;
         color: #141617;
         cursor: pointer;
+        margin-top: 10px;
         padding: 10px;
+        left: 45%;
         position: relative;
-        left: 40%;
         width:120px;
     }
-.registration
 </style>
 {% endblock %}
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3" id="form">
+        <div class="col-md-12" id="form">
             <center><b class="registration" >Register Now!</b></center>
             <br>
             <form method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <input type="submit" value="Register" class="butn">
+                <p style="text-align: center">Already have an account </p>
             </form>
         </div>
     </div>

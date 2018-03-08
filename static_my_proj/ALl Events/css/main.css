@@ -978,6 +978,9 @@ a {
 	margin: 0px;
 }
 
+.slide1{
+    background: url(../images/slider1.jpg);
+}
 .slide2 {
     background: url(../images/slider2.jpg);
 }

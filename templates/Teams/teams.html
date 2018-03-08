@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% block styling %}
+        {% endblock %}
+    <h2>If You Are a Team Leader then only Create The new Team</h2>
+    {% include 'Teams/forms.html' with form=teamform value='Add New Team' %}
+    <h3>AND Select Your Team </h3><hr><hr><br>
+    {% url 'Teams:update' slug=sluginst as urling %}
+    {% include 'Teams/forms.html' with form=teamselect action_url=urling value='Add Yourself To Team'%}
+{% endblock %}

@@ -5,7 +5,7 @@
     width: 50px;
     position: fixed;
     top:50px;
-    right: 50px;
+    left: 50px;
 	z-index: 999;
 }
 #MenuIcon:hover{
@@ -51,7 +51,7 @@
 #MainRohan{
     height: 100%;
     width: 30%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: #141617;
     clip-path:polygon(0 0,100% 0,0% 100%,0% 100%);
     position: fixed;
     top: 0;
@@ -67,7 +67,7 @@
     #MainRohan{
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: #141617;
     clip-path:polygon(0 0,100% 0,0% 100%,0% 100%);
     position: fixed;
     top: 0;
@@ -79,13 +79,22 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	z-index: 999;
 }
+    #MenuIcon{
+    height: 2px;
+    width: 3px;
+    position: fixed;
+    top:40px;
+    left: 40px;
+	z-index: 999;
+}
+
 }
 ul.rohan{
     list-style: none;
     padding: 0px;
     margin: 0px;
     font-family: 'Source Sans Pro', 'sans-serif';
-	font-size: 18px;
+	font-size: 24px;
     color: white;
     text-align: center;
     position: absolute;
@@ -99,7 +108,11 @@ ul.rohan li{
 ul.rohan li:hover{
     cursor: pointer;
 }
-.line{
+ul.rohan li a{
+    text-decoration: none;
+    color: inherit;
+}
+.lunar{
     height: 2px;
     width: 150px;
     background-color: white;
@@ -113,7 +126,7 @@ ul.rohan li:hover{
     transform: translate(-50%);
     transition: all .3s;
 }
-ul.rohan li:hover .line{
+ul.rohan li:hover .lunar{
     width: 210px;
 }
 #logging{
@@ -127,12 +140,12 @@ ul.rohan li:hover .line{
     transform: translate(-50%);
 }
 #logging img{
-    width: 355px;
+    width: 385px;
     height: 155px;
 }
 #closer img{
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 #closer{
     position: absolute;
@@ -143,8 +156,16 @@ ul.rohan li:hover .line{
     -ms-transform: translate(-50%);
     -o-transform: translate(-50%);
     transform: translate(-50%);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
 }
 #closer:hover{
     cursor: pointer ;
-
+    border: 2px solid white;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
 }

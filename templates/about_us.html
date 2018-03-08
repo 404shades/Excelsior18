@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+{% block styling %}
+             <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <style>
+    body{
+        background: url("/static/Launcher/images/about.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        font-family: 'Righteous', sans-serif;
+        color: white;
+    }
+    .about{
+        top: 50%;
+        left: 50%;
+        text-align: center;
+    }
+    .content{
+        background: rgba(0,0,0,0.6);
+        margin: 70px;
+        margin-top: 55px;
+        {#text-align: center;#}
+        text-align: justify;
+        font-size: 20px;
+        padding: 20px;
+        float: left;
+    }
+    .title{
+        display: inline-block;
+        {#margin: 0px auto;#}
+        text-align: center;
+        border-bottom-style: ridge;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="about">
+    <h1 class="title">About Us</h1>
+    <p class="content">Excelsior, the technocultural fest of UIET, is a rostrum where every effort is made at scaling upwards. The spirit of
+excelsior resonates with it's name.Since it's dawn in 2008, it has bestowed the minds with enthralling
+experiences thus unleashing newer dimensions. It is a 2 day odyssey  in the bright month of April, amalgamating
+everything from geeky to glamorous. Being one of the zenith events of North India, it takes creative freedom and entertainment to the next level.So, get ready to be swayed with
+this ecstatic wave and take away memories to be cherished.</p>
+    </div>
+
+
+
+
+
+
+{% endblock %}

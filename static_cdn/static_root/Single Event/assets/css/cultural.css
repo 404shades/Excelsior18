@@ -4254,7 +4254,7 @@
 
 			#copyright ul li {
 				border-left: solid 2px;
-				display: inline-block;
+				display: block;
 				line-height: 1;
 				margin-left: 1rem;
 				padding-left: 1rem;

@@ -97,18 +97,24 @@
 									<a href="#" class="image fit">{% if obj.image %}<img src="{{ obj.image.url }}" alt="" />{% endif %}</a>
 									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
 									<ul class="actions">
+                                    {% if technical and heading == 'Technical' %}
+                                            <li><a href="/events/allevents/{{ urling }}/{{ obj.slug }}" class="button special">Go to {{ obj.title }}</a></li>
+                                        {% endif %}
                                     {% if request.user.is_authenticated %}
 {#										<li><a href="#" class="button">Regsiter Now</a></li>#}
-                                        {% if technical and heading == 'Technical' %}
-                                            <li><a href="/events/allevents/{{ urling }}/{{ obj.slug }}" class="button special">Go to {{ obj.title }}</a></li>
-                                            {% else %}
+
+                                            {% if not technical %}
+                                                {% if not obj.group_event %}
                                         <li>{% include 'Events/Snippets/form.html' with event=obj participation=participate %}</li>
+                                                    {% else %}
+                                                    <li><a href="{{ obj.reg_link }}" class="button special">Register</a> </li>
+                                                    {% endif %}
                                         {% endif %}
                                     {% endif %}
                                     {% if not sub_event %}
-                                        <li><a href="{% if technical %}/events/allevents/{{ urling }}/{{ obj.slug }}/excelsior/rules{% else %}/events/allevents/{{ urling }}/excelsior/rules{% endif %}" class="button rules">Read More</a> </li>
+                                        <li><a href="{% if technical %}/events/allevents/{{ urling }}/{{ obj.slug }}/excelsior/rules{% else %}/events/allevents/{{ urling }}/excelsior/rules#{{ obj.slug }}{% endif %}" class="button rules">Read More</a> </li>
                                     {% else %}
-                                                                            <li><a href="/events/allevents/{{ categ_slug }}/{{ urling }}/excelsior/rules" class="button rules">Read More</a> </li>
+                                                                            <li><a href="/events/allevents/{{ categ_slug }}/{{ urling }}/excelsior/rules#{{ obj.slug }}" class="button rules">Read More</a> </li>
                                     {% endif %}
                                     </ul>
 								</article>

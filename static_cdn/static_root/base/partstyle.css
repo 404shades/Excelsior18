@@ -6,7 +6,7 @@ body{
 
 .loginbox{
     width: 420px;
-    height: 420px;
+    height: 430px;
     background: rgba(0,0,0,0.5);
     color:#fff;
     top: 50%;
@@ -18,6 +18,21 @@ body{
     box-sizing: border-box;
     padding: 70px 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 20px;
+    color: darkgray;
+    -webkit-transition: ease-in .3s;
+    -moz-transition: ease-in .3s;
+    -ms-transition: ease-in .3s;
+    -o-transition: ease-in .3s;
+    transition: ease-in .3s;
+}
+.loginbox a:hover{
+    color:#FFFFFF;
+    border-bottom: 2px solid whitesmoke;
 }
 
 h1{

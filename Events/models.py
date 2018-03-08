@@ -68,6 +68,9 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     area = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    slug  = models.SlugField(blank=True, null=True, max_length=250)
+    reg_link = models.CharField(max_length=100, null=True, blank=True)
+    group_event = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -75,3 +78,4 @@ class Event(models.Model):
     objects = EventsManager()
 
 
+pre_save.connect(rl_pre_save_receiver, sender=Event)
