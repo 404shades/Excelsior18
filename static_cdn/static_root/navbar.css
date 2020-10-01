@@ -22,7 +22,7 @@
     transition: all .3s;
 }
 #MenuIcon:hover #MenuLine{
-    width: 40px;
+    width: 50px;
 }
 #MenuLine::before{
     content: '';
@@ -34,7 +34,7 @@
     transition: all .3s;
 }
 #MenuIcon:hover #MenuLine::before{
-    width: 50px;
+    width: 45px;
 }
 #MenuLine::after{
     content: '';
@@ -56,7 +56,7 @@
     position: fixed;
     top: 0;
     left: -30%;
-    transition: all .5s ease-in-out;
+    transition: all 1s ease-in-out;
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -ms-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -67,7 +67,7 @@
     #MainRohan{
     height: 100%;
     width: 100%;
-    background-color: #141617;
+    background-color: #142017;
     clip-path:polygon(0 0,100% 0,0% 100%,0% 100%);
     position: fixed;
     top: 0;
